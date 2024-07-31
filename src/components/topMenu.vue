@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits } from "vue";
 import router from "../router";
 const emit = defineEmits(['tabScroll']);
 const props = defineProps({

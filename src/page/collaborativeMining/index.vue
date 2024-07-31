@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import Top from "@/components/topMenu.vue";
-import Bottom from "@/components/bottom.vue";
-import Pledge from "@/page/collaborativeMining/components/pledge.vue";
-import Person from "@/page/collaborativeMining/components/personal.vue";
+import Top from "../../components/topMenu.vue";
+import Bottom from "../../components/bottom.vue";
+import Pledge from "../../page/collaborativeMining/components/pledge.vue";
 import p1 from "../../assets/images/AUTOR.png";
 import p2 from "../../assets/images/ETH.png";
 import p3 from "../../assets/images/BTC.png";

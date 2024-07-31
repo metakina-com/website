@@ -3,7 +3,7 @@
   <router-view />
 </template>
 <script>
-import Top from "@/components/topMenu.vue";
+import Top from "./components/topMenu.vue";
 
 </script>
 <style scoped>

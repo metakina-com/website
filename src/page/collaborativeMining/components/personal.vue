@@ -23,13 +23,13 @@
           </div>
           <div class="social-icons">
             <img
-              src="@/assets/images/telegram.png"
+              src="../../../assets/images/telegram.png"
               class="icon"
               alt="Twitter"
             />
-            <img src="@/assets/images/discord.png" class="icon" alt="Twitter" />
+            <img src="../../../assets/images/discord.png" class="icon" alt="Twitter" />
             <img
-              src="@/assets/images/telegram.png"
+              src="../../../assets/images/telegram.png"
               class="icon"
               alt="Twitter"
             />
@@ -60,7 +60,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, defineProps, defineEmits} from "vue";
+import { defineProps, defineEmits} from "vue";
 const emit = defineEmits(['begin','cancel']);
 
 const props = defineProps({

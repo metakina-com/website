@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Top from "@/components/topMenu.vue";
-import Bottom from "@/components/bottom.vue";
+import Top from "../../components/topMenu.vue";
+import Bottom from "../../components/bottom.vue";
 import List from "./components/list.vue";
 
 import { ref, onMounted } from "vue";
@@ -26,12 +26,16 @@ const items = ref([
   "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
   "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
 ]);
-const scrollContainer = ref(null);
+const scrollContainer: any = ref(null);
 onMounted(() => {
   const containerHeight = scrollContainer.value.clientHeight;
   const itemHeight = scrollContainer.value.querySelector("div").clientHeight;
   if (containerHeight > itemHeight) {
-    document.querySelector(".scroll-list").style.animation = `none`;
+    const scrollList = document.querySelector(".scroll-list");
+    if (scrollList !== null) {
+      (scrollList as HTMLElement).style.animation = `none`;
+    }
+    // document.querySelector(".scroll-list").style.animation = `none`;
   }
 });
 </script>
@@ -40,8 +44,8 @@ onMounted(() => {
   <Top activeIndex="/task" />
   <div class="explain">
     <div class="content">
-      <text class="t1" >Metakina福利</text>
-      <text class="t2" >领取规则</text>
+      <text class="t1">Metakina福利</text>
+      <text class="t2">领取规则</text>
     </div>
     <div style="font-size: 18px; width: 50%">
       这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明
@@ -81,8 +85,8 @@ onMounted(() => {
   </div>
   <div class="explain">
     <div class="content">
-      <text class="t1" style="font-size: 42px;">进入Kinaswap交易获取更多</text>
-      <text class="t2" style="font-size: 42px;">空投福利</text>
+      <text class="t1" style="font-size: 42px">进入Kinaswap交易获取更多</text>
+      <text class="t2" style="font-size: 42px">空投福利</text>
     </div>
   </div>
   <Bottom />

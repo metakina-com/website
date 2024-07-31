@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import Top from "@/components/topMenu.vue";
-import Bottom from "@/components/bottom.vue";
-import Pledge from "@/page/collaborativeMining/components/pledge.vue";
-import Person from "@/page/collaborativeMining/components/personal.vue";
-import Login from "@/page/collaborativeMining/components/login.vue";
-import p1 from "../../assets/images/AUTOR.png";
+import Top from "../../components/topMenu.vue";
+import Bottom from "../../components/bottom.vue";
+import Pledge from "../../page/collaborativeMining/components/pledge.vue";
+import Login from "../../page/collaborativeMining/components/login.vue";
 import p2 from "../../assets/images/ETH.png";
 import p3 from "../../assets/images/BTC.png";
 import { ref } from "vue";
@@ -23,7 +21,7 @@ const activeTab2 = ref("代币");
         节点挖矿
       </div>
     </div>
-    <Pledge :imgurl="p2" :circle="true" v-for="(_, index) in [ {}]" />
+    <Pledge :imgurl="p2" :circle="true" v-for="(_, index) in [ {}]" :key="index"/>
   </div>
   <div class="container">
     <div class="tabs">
@@ -45,10 +43,10 @@ const activeTab2 = ref("代币");
     </div>
     <div class="">
       <div v-if="activeTab2 === '代币'" class="statc">
-        <Pledge :imgurl="p2" :circle="true" v-for="(_, index) in [{}, {}, {}, {}, {}]" />
+        <Pledge :imgurl="p2" :circle="true" v-for="(_, index) in [{}, {}, {}, {}, {}]" :key="index"/>
       </div>
       <div v-if="activeTab2 === 'LP'" class="statc">
-        <Pledge :imgurl="p3" :circle="true" v-for="(_, index) in [{}, {}]" />
+        <Pledge :imgurl="p3" :circle="true" v-for="(_, index) in [{}, {}]" :key="index" />
       </div>
     </div>
     <!-- <div

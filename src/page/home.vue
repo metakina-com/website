@@ -1,39 +1,25 @@
 <script setup lang="ts">
-import Top from "@/components/topMenu.vue";
-import Bottom from "@/components/bottom.vue";
-import tf from "@/assets/images/home/tf.png";
-import tone from "@/assets/images/home/tone.png";
-import tseven from "@/assets/images/home/tseven.png";
-import tshree from "@/assets/images/home/tshree.png";
-import tsix from "@/assets/images/home/tsix.png";
-import ttive from "@/assets/images/home/ttive.png";
-import ttwo from "@/assets/images/home/ttwo.png";
+import Top from "../components/topMenu.vue";
+import Bottom from "../components/bottom.vue";
+import tf from "../assets/images/home/tf.png";
+import tone from "../assets/images/home/tone.png";
+import tseven from "../assets/images/home/tseven.png";
+import tshree from "../assets/images/home/tshree.png";
+import tsix from "../assets/images/home/tsix.png";
+import ttive from "../assets/images/home/ttive.png";
+import ttwo from "../assets/images/home/ttwo.png";
 
-import bai from "@/assets/images/home/bai.png";
-import hei from "@/assets/images/home/hei.png";
-import lan from "@/assets/images/home/lan.png";
-import hui from "@/assets/images/home/hui.png";
-import shuang from "@/assets/images/home/shuang.png";
-import qhuang from "@/assets/images/home/qhuang.png";
+import bai from "../assets/images/home/bai.png";
+import hei from "../assets/images/home/hei.png";
+import lan from "../assets/images/home/lan.png";
+import hui from "../assets/images/home/hui.png";
+import shuang from "../assets/images/home/shuang.png";
+import qhuang from "../assets/images/home/qhuang.png";
 
-import pfive from "@/assets/images/project/pfive.png";
-import pt from "@/assets/images/project/pt.png";
-import pseven from "@/assets/images/project/pseven.png";
-import peight from "@/assets/images/project/peight.png";
 
-import aleight from "@/assets/images/project/aleight.png";
-import alfive from "@/assets/images/project/alfive.png";
-import alseven from "@/assets/images/project/alseven.png";
-import alf from "@/assets/images/project/alf.png";
-import alone from "@/assets/images/project/alone.png";
-import alsix from "@/assets/images/project/alsix.png";
-import altwo from "@/assets/images/project/altwo.png";
-import althree from "@/assets/images/project/althree.png";
-import topbg from "@/assets/images/home/bgtop.mp4";
+import topbg from "../assets/images/home/bgtop.mp4";
 
-import { Search } from "@element-plus/icons-vue";
-import { ref, onMounted } from "vue";
-import { useRoute } from "vue-router";
+import { ref } from "vue";
 
 const oneList = ref([
   {
@@ -161,7 +147,7 @@ const oneList = ref([
 
 <template>
   <div class="search">
-    <Top activeIndex="/" @tabScroll="tabScroll" />
+    <Top activeIndex="/"  />
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
         <source :src="topbg" type="video/mp4" />

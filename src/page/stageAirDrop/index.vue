@@ -1,10 +1,9 @@
 <script setup lang="ts">
-import Top from "@/components/topMenu.vue";
-import Bottom from "@/components/bottom.vue";
+import Top from "../../components/topMenu.vue";
+import Bottom from "../../components/bottom.vue";
 import List from "./components/list.vue";
 import GetList from "./components/getList.vue";
 
-import { ref, onMounted } from "vue";
 
 
 </script>

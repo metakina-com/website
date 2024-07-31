@@ -17,7 +17,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { ref, defineProps } from "vue";
+import {  defineProps } from "vue";
 const yasuo = (address: any) => {
   if (address.length <= 10) {
     return address; // 如果地址长度小于或等于10，则直接返回地址
