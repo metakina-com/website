@@ -1,0 +1,189 @@
+<script setup lang="ts">
+import Top from "@/components/topMenu.vue";
+import Bottom from "@/components/bottom.vue";
+import List from "./components/list.vue";
+
+import { ref, onMounted } from "vue";
+const items = ref([
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+]);
+const scrollContainer = ref(null);
+onMounted(() => {
+  const containerHeight = scrollContainer.value.clientHeight;
+  const itemHeight = scrollContainer.value.querySelector("div").clientHeight;
+  if (containerHeight > itemHeight) {
+    document.querySelector(".scroll-list").style.animation = `none`;
+  }
+});
+</script>
+
+<template>
+  <Top activeIndex="/task" />
+  <div class="explain">
+    <div class="content">
+      <text class="t1" >Metakina福利</text>
+      <text class="t2" >领取规则</text>
+    </div>
+    <div style="font-size: 18px; width: 50%">
+      这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明
+    </div>
+  </div>
+  <List
+    v-for="(v, i) in [
+      { btnLName: '关注' },
+      { btnLName: '点赞' },
+      { btnLName: '转发' },
+      { btnLName: '转发' },
+    ]"
+    :key="i"
+    :btnLName="v.btnLName"
+  />
+  <el-button type="success" class="btn btn-withdraw">领取福利</el-button>
+  <div class="raffle">
+    <div class="lf">
+      <text class="t1">幸运</text>
+      <text class="t2">抽奖</text>
+      <div style="font-size: 18px; width: 59%">
+        任务时间到期，将随机抽取关注推特并领取福利的10位用户得到空投
+      </div>
+      <div style="font-size: 18px; margin-top: 40px">
+        开奖倒计时：51天15小时23分55秒
+      </div>
+      <img src="../../assets/images/fuli.png" alt="Image" class="fuliimage" />
+    </div>
+    <div class="rg">
+      <div>上期中奖地址</div>
+      <div class="scroll-container" ref="scrollContainer">
+        <div class="scroll-list">
+          <div v-for="item in items" :key="item">{{ item }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="explain">
+    <div class="content">
+      <text class="t1" style="font-size: 42px;">进入Kinaswap交易获取更多</text>
+      <text class="t2" style="font-size: 42px;">空投福利</text>
+    </div>
+  </div>
+  <Bottom />
+</template>
+
+<style scoped>
+.scroll-container {
+  height: 90%;
+  overflow: hidden;
+  position: relative;
+  margin-top: 24px;
+}
+
+.scroll-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  animation: scroll 10s linear infinite;
+  font-size: 17px;
+}
+.scroll-list div {
+  margin-bottom: 24px;
+  color: #46a362;
+}
+@keyframes scroll {
+  0% {
+    top: 0;
+  }
+  100% {
+    top: -100%;
+  }
+}
+.rg {
+  border: 1px solid #323232;
+  border-radius: 16px;
+  width: 30%;
+  position: relative;
+  padding: 30px;
+  height: 600px;
+  font-size: 24px;
+}
+.fuliimage {
+  width: 383px;
+  height: 322px;
+  position: absolute;
+  right: 90px;
+  bottom: 30px;
+}
+.raffle {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+  margin-bottom: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+.lf {
+  background-color: rgb(24, 25, 32);
+  border-radius: 16px;
+  width: 60%;
+  position: relative;
+  padding: 30px;
+  height: 600px;
+}
+.explain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 0;
+  width: 100%;
+  height: 282px;
+  background-color: rgb(24, 25, 32);
+  flex-direction: column;
+  margin-bottom: 60px;
+}
+.btn {
+  border: none;
+  width: 180px;
+  height: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  margin: 30px 0 80px 0;
+}
+.btn-withdraw {
+  background-color: #46a362;
+  color: #fff;
+  margin-left: 10px;
+}
+.content {
+  margin-bottom: 20px;
+}
+.t1 {
+  color: #e62a2a;
+  font-size: 52px;
+}
+.t2 {
+  font-size: 52px;
+}
+</style>
