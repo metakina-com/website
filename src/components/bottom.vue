@@ -10,6 +10,7 @@
     .btmimg{
         height: 257px;
         background: url('../assets/images/btmimg.png');
+        background-size: cover;
     }
 </style>
 

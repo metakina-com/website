@@ -5,6 +5,7 @@ import StageAirDrop from '../page/stageAirDrop/index.vue';
 import CollaborativeMining from '../page/collaborativeMining/index.vue';
 import Node from '../page/collaborativeMining/node.vue';
 import ProjectCPT from '../page/projectCPT/index.vue';
+import Metaverse from '../page/metaverse/index.vue';
 
 const routes = [
   {
@@ -36,6 +37,11 @@ const routes = [
     path: '/projectCPT',
     name: 'projectCPT',
     component: ProjectCPT
+  },
+  {
+    path: '/metaverse',
+    name: 'metaverse',
+    component: Metaverse
   },
 ];
 

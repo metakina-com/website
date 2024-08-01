@@ -1,18 +1,23 @@
 <script setup lang="ts">
 import { defineProps, defineEmits } from "vue";
 import router from "../router";
-const emit = defineEmits(['tabScroll']);
+const emit = defineEmits(["tabScroll"]);
 const props = defineProps({
-    activeIndex: String,
+  activeIndex: String,
 });
 const handleSelect = (key: string, keyPath: any[]) => {
-  if(keyPath[0] == 2){
-    emit('tabScroll',key)
-    router.push('projectCPT?nav=' + key)
-  
-  }else{
-    router.push(key)
-  }
+  if (keyPath[0] == 2) {
+    emit("tabScroll", key);
+    router.push("projectCPT?nav=" + key);
+  } else if (key === "webseit") {
+    window.open("https://www.metaworldglobal.net/");
+  } else if (key === "whiteParper") {
+    window.open("https://metaversekia.gitbook.io/metaversekia/");
+  }else if (keyPath[0] == 4) {
+    window.open(key);
+  } else {
+    router.push(key);
+  } 
   console.log(key, keyPath[0]);
 };
 </script>
@@ -48,9 +53,9 @@ const handleSelect = (key: string, keyPath: any[]) => {
       </el-sub-menu>
       <el-sub-menu index="4">
         <template #title>生态应用</template>
-        <el-menu-item index="4-1">跨链工具</el-menu-item>
-        <el-menu-item index="4-2">KinaSWAP</el-menu-item>
-        <el-menu-item index="4-3">MWC钱包</el-menu-item>
+        <el-menu-item index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/">跨链工具</el-menu-item>
+        <el-menu-item index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/">KinaSWAP</el-menu-item>
+        <el-menu-item index="https://r200.kinachain.com/">MWC钱包</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="5">
         <template #title>限时空投</template>
@@ -59,16 +64,16 @@ const handleSelect = (key: string, keyPath: any[]) => {
       </el-sub-menu>
       <el-sub-menu index="6">
         <template #title>元宇宙</template>
-        <el-menu-item index="6-1">MWC商城</el-menu-item>
-        <el-menu-item index="6-2">KIA元宇宙计划</el-menu-item>
-        <el-menu-item index="6-3">元宇宙API接口</el-menu-item>
-        <el-menu-item index="6-4">宇宙生态布局</el-menu-item>
+        <el-menu-item index="/metaverse">宇宙生态布局</el-menu-item>
+        <el-menu-item index="webseit">MWC商城</el-menu-item>
+        <!-- <el-menu-item index="6-2">KIA元宇宙计划</el-menu-item> -->
+        <!-- <el-menu-item index="6-3">元宇宙API接口</el-menu-item> -->
       </el-sub-menu>
       <el-sub-menu index="7">
         <template #title>更多</template>
-        <el-menu-item index="7-1">演讲</el-menu-item>
-        <el-menu-item index="7-2">合作伙伴</el-menu-item>
-        <el-menu-item index="7-3">联系我们</el-menu-item>
+        <el-menu-item index="whiteParper">白皮书</el-menu-item>
+        <el-menu-item index="/">联系我们</el-menu-item>
+        <el-menu-item index="/">合作伙伴</el-menu-item>
       </el-sub-menu>
     </el-menu>
     <div class="social-icons">
@@ -81,21 +86,19 @@ const handleSelect = (key: string, keyPath: any[]) => {
   </nav>
 </template>
 
-<style scoped >
+<style scoped>
 .el-menu {
   background-color: rgba(0, 0, 0, 0) !important;
   color: #fff;
   border: none !important;
   width: 820px;
 }
- .el-sub-menu__title:hover{
+.el-sub-menu__title:hover {
   background-color: red !important;
-
 }
-.el-popper{
-  border:none !important; /* 示例：更改 popper 边框颜色 */
+.el-popper {
+  border: none !important; /* 示例：更改 popper 边框颜色 */
 }
-
 
 .el-popper .el-menu-item:hover {
   background-color: #fff !important ;
@@ -161,8 +164,4 @@ const handleSelect = (key: string, keyPath: any[]) => {
   cursor: pointer;
   border-radius: 5px;
 }
-
-
-
-
 </style>
