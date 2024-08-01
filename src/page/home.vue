@@ -252,19 +252,17 @@ const threeList =ref([
   background-size: 100%;
   text-align: center;
   margin: 100px 0;
+  position: relative;
 }
 .bottomt{
   font-size: 52px;
-  position: relative;
-  left: 60px;
-  top: 106px;
+  padding: 106px 0 0 106px;
+ 
 }
 .bottomb{
-  position: relative;
+  padding: 56px 0 0 106px;
   font-size: 32px;
   color: #E62A2A;
-  left: 60px;
-  top: 130px;
   cursor: pointer;
 }
 .bottom img{
