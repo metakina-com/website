@@ -200,7 +200,7 @@ function byEvents() {
 
 .carouselBox {
   margin: 0 auto;
-  // width: 90%;
+  width: 90%;
   .el-carousel__item{
     left: 130px !important;
   }
