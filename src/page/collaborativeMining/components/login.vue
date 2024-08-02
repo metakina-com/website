@@ -18,7 +18,7 @@ const getYzm = () => {
     <div class="down">挖矿APP下载</div>
     <div class="logincontainer">
     <div class="illustration">
-      <img src="../../../assets/images/wakuang.png" alt="Mining Illustration" />
+      <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/wakuang.png" alt="Mining Illustration" />
     </div>
     <div class="login-form">
       <h2 style="font-size: 32px">开机挖币</h2>

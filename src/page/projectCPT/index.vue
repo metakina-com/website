@@ -1,120 +1,102 @@
 <script setup lang="ts">
 import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
-import boxf from "../../assets/images/project/boxf.png";
-import boxs from "../../assets/images/project/boxs.png";
-import boxo from "../../assets/images/project/boxo.png";
-import boxt from "../../assets/images/project/boxt.png";
-import pone from "../../assets/images/project/pone.png";
-import psix from "../../assets/images/project/psix.png";
-import ps from "../../assets/images/project/ps.png";
-import pf from "../../assets/images/project/pf.png";
-import pfive from "../../assets/images/project/pfive.png";
-import pt from "../../assets/images/project/pt.png";
-import pseven from "../../assets/images/project/pseven.png";
-import peight from "../../assets/images/project/peight.png";
 
-import aleight from "../../assets/images/project/aleight.png";
-import alfive from "../../assets/images/project/alfive.png";
-import alseven from "../../assets/images/project/alseven.png";
-import alf from "../../assets/images/project/alf.png";
-import alone from "../../assets/images/project/alone.png";
-import alsix from "../../assets/images/project/alsix.png";
-import altwo from "../../assets/images/project/altwo.png";
-import althree from "../../assets/images/project/althree.png";
-import topbg from "../../assets/images/project/topbg.mp4";
 
 import { Search } from "@element-plus/icons-vue";
-import { ref, onMounted } from "vue";
-import { useRoute } from 'vue-router'
+import { ref, onMounted, getCurrentInstance } from "vue";
+import { useRoute } from "vue-router";
+
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 
 const navoneList = ref([
   {
-    imgurl: boxf,
+    imgurl: proxy?.$ipfsUrl + "project/boxf.png",
     t1: "数字藏品SaaS系统",
     t2: "提供数字藏品IP、铸造、营销、交易、版权、安全、资源的一站式全套解决方案",
   },
   {
-    imgurl: boxs,
+    imgurl: proxy?.$ipfsUrl + "project/boxs.png",
     t1: "区块链+云原生",
     t2: "满足客户高并发、高安全、高效率的需求与应用场景",
   },
   {
-    imgurl: boxo,
+    imgurl: proxy?.$ipfsUrl + "project/boxo.png",
     t1: "3D展馆+元宇宙",
     t2: "提升用户体验，赋能企业品牌营销与战略布局",
   },
   {
-    imgurl: boxt,
+    imgurl: proxy?.$ipfsUrl + "project/boxt.png",
     t1: "行业解决方案",
     t2: "适用于银行、物联网、教育、医疗、公证、版权管理等多行业",
   },
 ]);
 const navtwoList = ref([
   {
-    imgurl: psix,
+    imgurl: proxy?.$ipfsUrl + "project/psix.png",
     t1: "APP定制开发",
   },
   {
-    imgurl: pone,
+    imgurl: proxy?.$ipfsUrl + "project/pone.png",
     t1: "DAPP定制化开发",
   },
   {
-    imgurl: ps,
+    imgurl: proxy?.$ipfsUrl + "project/ps.png",
     t1: "DEFI开发",
   },
   {
-    imgurl: pf,
+    imgurl: proxy?.$ipfsUrl + "project/pf.png",
     t1: "SAAS系统NFT板块开发",
   },
   {
-    imgurl: pfive,
+    imgurl: proxy?.$ipfsUrl + "project/pfive.png",
     t1: "APP定制开发",
   },
   {
-    imgurl: pt,
+    imgurl: proxy?.$ipfsUrl + "project/pt.png",
     t1: "DAPP定制化开发",
   },
   {
-    imgurl: pseven,
+    imgurl: proxy?.$ipfsUrl + "project/pseven.png",
     t1: "DEFI开发",
   },
   {
-    imgurl: peight,
+    imgurl: proxy?.$ipfsUrl + "project/peight.png",
     t1: "SAAS系统NFT板块开发",
   },
 ]);
 const navthreeList = ref([
   {
-    imgurl: aleight,
+    imgurl: proxy?.$ipfsUrl + "project/aleight.png",
     t1: "Cat Man 案例展示",
   },
   {
-    imgurl: alfive,
+    imgurl: proxy?.$ipfsUrl + "project/alfive.png",
     t1: "星际争霸案例展示",
   },
   {
-    imgurl: alseven,
+    imgurl: proxy?.$ipfsUrl + "project/alseven.png",
     t1: "Cat Man 案例展示",
   },
   {
-    imgurl: alf,
+    imgurl: proxy?.$ipfsUrl + "project/alf.png",
     t1: "矿机挖矿案例展示",
   },
   {
-    imgurl: alone,
+    imgurl: proxy?.$ipfsUrl + "project/alone.png",
     t1: "双币质押案例展示",
   },
   {
-    imgurl: alsix,
+    imgurl: proxy?.$ipfsUrl + "project/alsix.png",
     t1: "算力挖矿案例展示",
   },
   {
-    imgurl: altwo,
+    imgurl: proxy?.$ipfsUrl + "project/altwo.png",
     t1: "元时空案例展示",
   },
   {
-    imgurl: althree,
+    imgurl: proxy?.$ipfsUrl + "project/althree.png",
     t1: "异国怪兽案例展示",
   },
 ]);
@@ -143,17 +125,17 @@ const tabScroll = (v: any) => {
     element.scrollIntoView({ behavior: "smooth" });
   }
 };
-onMounted(()=>{
-  tabScroll(useRoute().query.nav)
-})
+onMounted(() => {
+  tabScroll(useRoute().query.nav);
+});
 </script>
 
 <template>
+  <Top activeIndex="/projectCPT" @tabScroll="tabScroll" />
   <div class="search">
-    <Top activeIndex="/projectCPT" @tabScroll="tabScroll" />
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source :src="topbg" type="video/mp4" />
+        <source :src="proxy?.$ipfsUrl + 'project/topbg.mp4' " type="video/mp4" />
       </video>
     </div>
     <div class="searchText" id="nav">
@@ -172,14 +154,18 @@ onMounted(()=>{
       />
     </div>
   </div>
+  <div style="height: 994px"></div>
+  <div class="title"  id="nav2">
+    <div class="titleword"></div>
+  </div>
   <div class="saasSystem">
     <img
-      src="../../assets/images/project/szcpzc.png"
+      :src= "proxy?.$ipfsUrl + 'project/szcpzc.png'"
       alt="saas"
       class="saasimg"
       srcset=""
     />
-    <div class="saasright">
+    <div class="saasright" >
       <div>数字藏品与数字资产</div>
       <div>营销<text style="color: #e62a2a">SaaS系统</text></div>
       <div style="font-size: 26px; width: 52%; text-align: right">
@@ -196,7 +182,7 @@ onMounted(()=>{
       >
     </div>
   </div>
-  <div class="title" id="nav2">
+  <div class="title">
     <div class="titleword">NFTsaas系统功能生态</div>
     <div class="redline"></div>
   </div>
@@ -488,7 +474,7 @@ onMounted(()=>{
   align-items: center;
   justify-content: space-between;
   padding: 0 10%;
-  margin-top: 166px;
+  padding-top: 166px;
   margin-bottom: 120px;
 }
 .saasright {
@@ -504,8 +490,9 @@ onMounted(()=>{
 .search {
   width: 100%;
   height: 994px;
-  position: relative;
   z-index: 1;
+  position: absolute;
+  top: 0;
 }
 .searchText {
   width: 80%;

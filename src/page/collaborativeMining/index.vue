@@ -2,10 +2,9 @@
 import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
 import Pledge from "../../page/collaborativeMining/components/pledge.vue";
-import p1 from "../../assets/images/AUTOR.png";
-import p2 from "../../assets/images/ETH.png";
-import p3 from "../../assets/images/BTC.png";
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 
 const activeTab = ref("ETH");
 const activeTab2 = ref("NFT");
@@ -80,14 +79,14 @@ const activeTab2 = ref("NFT");
     <div class="">
       <div v-if="activeTab2 === 'NFT'" class="statc">
         <Pledge
-          :imgurl="p1"
+          :imgurl="proxy?.$ipfsUrl + 'AUTOR.png'"
           v-for="(_, index) in [{}, {}, {}, {}, {}]"
           :key="index"
         />
       </div>
       <div v-if="activeTab2 === '代币'" class="statc">
         <Pledge
-          :imgurl="p2"
+          :imgurl="proxy?.$ipfsUrl + 'ETH.png'"
           :circle="true"
           v-for="(_, index) in [{}, {}]"
           :key="index"
@@ -95,20 +94,13 @@ const activeTab2 = ref("NFT");
       </div>
       <div v-if="activeTab2 === 'LP'" class="statc">
         <Pledge
-          :imgurl="p3"
+          :imgurl="proxy?.$ipfsUrl + 'BTC.png'"
           :circle="true"
           v-for="(_, index) in [{}, {}, {}]"
           :key="index"
         />
       </div>
     </div>
-    <!-- <div
-      class="contentc w-80c Person"
-      v-for="(_, index) in [{}, {},{}, {},{}, {}]"
-      :key="index"
-    >
-      <Person :imgurl="p1" />
-    </div> -->
   </div>
   <Bottom />
 </template>
@@ -150,7 +142,7 @@ const activeTab2 = ref("NFT");
 .content-s {
   width: 532px;
   height: 237px;
-  background: url("../../assets/images/csimgbg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/csimgbg.png") no-repeat;
   background-size: contain;
   display: flex;
   flex-direction: column;

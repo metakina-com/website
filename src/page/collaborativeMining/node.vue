@@ -3,9 +3,10 @@ import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
 import Pledge from "../../page/collaborativeMining/components/pledge.vue";
 import Login from "../../page/collaborativeMining/components/login.vue";
-import p2 from "../../assets/images/ETH.png";
-import p3 from "../../assets/images/BTC.png";
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
+
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 
 const activeTab2 = ref("代币");
 </script>
@@ -21,7 +22,7 @@ const activeTab2 = ref("代币");
         节点挖矿
       </div>
     </div>
-    <Pledge :imgurl="p2" :circle="true" v-for="(_, index) in [ {}]" :key="index"/>
+    <Pledge :imgurl="proxy?.$ipfsUrl + 'ETH.png'" :circle="true" v-for="(_, index) in [ {}]" :key="index"/>
   </div>
   <div class="container">
     <div class="tabs">
@@ -43,19 +44,12 @@ const activeTab2 = ref("代币");
     </div>
     <div class="">
       <div v-if="activeTab2 === '代币'" class="statc">
-        <Pledge :imgurl="p2" :circle="true" v-for="(_, index) in [{}, {}, {}, {}, {}]" :key="index"/>
+        <Pledge :imgurl="proxy?.$ipfsUrl + 'ETH.png'" :circle="true" v-for="(_, index) in [{}, {}, {}, {}, {}]" :key="index"/>
       </div>
       <div v-if="activeTab2 === 'LP'" class="statc">
-        <Pledge :imgurl="p3" :circle="true" v-for="(_, index) in [{}, {}]" :key="index" />
+        <Pledge :imgurl="proxy?.$ipfsUrl + 'BTC.png'" :circle="true" v-for="(_, index) in [{}, {}]" :key="index" />
       </div>
     </div>
-    <!-- <div
-      class="contentc w-80c Person"
-      v-for="(_, index) in [{}, {}]"
-      :key="index"
-    >
-      <Person :imgurl="p1" />
-    </div> -->
   </div>
   <Bottom />
 </template>

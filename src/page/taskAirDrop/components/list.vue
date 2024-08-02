@@ -3,7 +3,7 @@
     <div class="c-top" >
       <div class="card-header">
         <img
-          src="../../../assets/images/BNB.png"
+          src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/BNB.png"
           alt="Cat Image"
           class="cat-image"
         />

@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from "vue";
+import { defineProps, defineEmits, getCurrentInstance } from "vue";
+
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 import router from "../router";
+import { ElMessage } from "element-plus";
 const emit = defineEmits(["tabScroll"]);
 const props = defineProps({
   activeIndex: String,
@@ -13,19 +17,29 @@ const handleSelect = (key: string, keyPath: any[]) => {
     window.open("https://www.metaworldglobal.net/");
   } else if (key === "whiteParper") {
     window.open("https://metaversekia.gitbook.io/metaversekia/");
-  }else if (keyPath[0] == 4) {
+  } else if (keyPath[0] == 4) {
     window.open(key);
   } else {
     router.push(key);
-  } 
+  }
   console.log(key, keyPath[0]);
+};
+const copy = async () => {
+  await navigator.clipboard.writeText("MetaverseKIA@gmail.com");
+  ElMessage({
+    message: "邮箱复制成功！！！",
+    type: "success",
+  });
+};
+const gourl = (url: string) => {
+  window.open(url);
 };
 </script>
 
 <template>
   <nav class="navbar">
     <div class="logo">
-      <img src="../assets/images/logo.png" alt="Logo" />
+      <img :src="proxy?.$ipfsUrl + 'home/logo.png'" alt="Logo" />
     </div>
     <el-menu
       popper-class="poppertop"
@@ -53,8 +67,14 @@ const handleSelect = (key: string, keyPath: any[]) => {
       </el-sub-menu>
       <el-sub-menu index="4">
         <template #title>生态应用</template>
-        <el-menu-item index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/">跨链工具</el-menu-item>
-        <el-menu-item index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/">KinaSWAP</el-menu-item>
+        <el-menu-item
+          index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/"
+          >跨链工具</el-menu-item
+        >
+        <el-menu-item
+          index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/"
+          >KinaSWAP</el-menu-item
+        >
         <el-menu-item index="https://r200.kinachain.com/">MWC钱包</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="5">
@@ -72,21 +92,39 @@ const handleSelect = (key: string, keyPath: any[]) => {
       <el-sub-menu index="7">
         <template #title>更多</template>
         <el-menu-item index="whiteParper">白皮书</el-menu-item>
-        <el-menu-item index="/">联系我们</el-menu-item>
-        <el-menu-item index="/">合作伙伴</el-menu-item>
+        <el-menu-item index="/contactUS">联系我们</el-menu-item>
+        <!-- <el-menu-item index="/">合作伙伴</el-menu-item> -->
       </el-sub-menu>
     </el-menu>
     <div class="social-icons">
-      <a href="#"><img src="../assets/images/telegram.png" alt="Twitter" /></a>
-      <a href="#"><img src="../assets/images/discord.png" alt="Discord" /></a>
-      <a href="#"><img src="../assets/images/telegram.png" alt="Telegram" /></a>
-      <a href="#"><img src="../assets/images/info.png" alt="Info" /></a>
+      <div @click="gourl('https://x.com/MetaverseKIA')" class="gourl">
+        <img :src="proxy?.$ipfsUrl + 'home/byyhree.png'" />
+      </div>
+      <div @click="gourl('https://discord.gg/HQxkyZM6kw')" class="gourl">
+        <img :src="proxy?.$ipfsUrl + 'home/discord.png'" />
+      </div>
+      <div @click="gourl('https://t.me/MetaverseKIApublic')" class="gourl">
+        <img :src="proxy?.$ipfsUrl + 'home/telegram.png'" />
+      </div>
+      <div
+        @click="gourl('https://www.youtube.com/@MetaverseKIA')"
+        class="gourl"
+      >
+        <img :src="proxy?.$ipfsUrl + 'home/btfive.png'" />
+      </div>
+      <div @click="copy" class="gourl">
+        <img :src="proxy?.$ipfsUrl + 'home/bttwo.png'" />
+      </div>
     </div>
     <button class="wallet-button">{{ $t("top.ljieqianbao") }}</button>
   </nav>
 </template>
 
 <style scoped>
+.gourl {
+  cursor: pointer;
+  padding: 0 5px;
+}
 .el-menu {
   background-color: rgba(0, 0, 0, 0) !important;
   color: #fff;
@@ -111,6 +149,9 @@ const handleSelect = (key: string, keyPath: any[]) => {
   align-items: center;
   padding: 20px 10%;
   background-color: rgba(0, 0, 0, 0.5);
+  position: sticky;
+  top: 0;
+  z-index: 999;
   /* width: 80%; */
   /* margin: 0 auto; */
 }

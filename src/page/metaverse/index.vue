@@ -1,25 +1,11 @@
 <script setup lang="ts">
 import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
-import lbone from "../../assets/images/home/lbone.png";
-import lbtwo from "../../assets/images/home/lbtwo.png";
-import lbthree from "../../assets/images/home/lbthree.png";
-import lbfour from "../../assets/images/home/lbfour.png";
-import lbfive from "../../assets/images/home/lbfive.png";
-import lbsix from "../../assets/images/home/lbsix.png";
-import lbseven from "../../assets/images/home/lbseven.png";
-import lbeight from "../../assets/images/home/lbeight.png";
-import lbnight from "../../assets/images/home/lbnight.png";
 
-import btone from "../../assets/images/home/btone.png";
-import bttwo from "../../assets/images/home/bttwo.png";
-import byyhree from "../../assets/images/home/byyhree.png";
-import btfour from "../../assets/images/home/btfour.png";
-import btfive from "../../assets/images/home/btfive.png";
-
-import topbg from "../../assets/images/home/matetop.mp4";
-
-import { ref, onMounted } from "vue";
+import { ElMessage } from "element-plus";
+import { ref, getCurrentInstance, onMounted } from "vue";
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const input = ref("");
 const search = (e: any) => {
   if (e) {
@@ -27,66 +13,78 @@ const search = (e: any) => {
 };
 const oneList = ref([
   {
-    img: lbthree,
+    img: proxy?.$ipfsUrl + "home/lbthree.png",
     title: "元宇宙社交",
     title2: "通过VR、AR和3D技术，打造三维空间的互动社交体验。",
   },
   {
-    img: lbeight,
+    img: proxy?.$ipfsUrl + "home/lbeight.png",
     title: "元宇宙展厅",
-    title2: "利用虚拟现实技术在元宇宙中构建的展览空间，为艺术家和创作者提供了一个展示作品的新渠道。",
+    title2:
+      "利用虚拟现实技术在元宇宙中构建的展览空间，为艺术家和创作者提供了一个展示作品的新渠道。",
   },
   {
-    img: lbfour,
+    img: proxy?.$ipfsUrl + "home/lbfour.png",
     title: "元宇宙游戏",
-    title2: "结合了虚拟现实技术、区块链、以及在线多人互动，为用户提供一个沉浸式的虚拟世界。",
+    title2:
+      "结合了虚拟现实技术、区块链、以及在线多人互动，为用户提供一个沉浸式的虚拟世界。",
   },
   {
-    img: lbsix,
+    img: proxy?.$ipfsUrl + "home/lbsix.png",
     title: "元宇宙数字孪生",
-    title2: "通过创建物理实体的数字副本来实现对现实世界的精确映射和实时监控。在智慧城市、自动驾驶等领域有着广泛的应用。",
+    title2:
+      "通过创建物理实体的数字副本来实现对现实世界的精确映射和实时监控。在智慧城市、自动驾驶等领域有着广泛的应用。",
   },
   {
-    img: lbone,
+    img: proxy?.$ipfsUrl + "home/lbone.png",
     title: "元宇宙虚拟数字人",
-    title2: "通过计算机图形学技术创造的与人类形象接近的数字化形象，并被赋予特定的人物身份设定。",
+    title2:
+      "通过计算机图形学技术创造的与人类形象接近的数字化形象，并被赋予特定的人物身份设定。",
   },
   {
-    img: lbseven,
+    img: proxy?.$ipfsUrl + "home/lbseven.png",
     title: "元宇宙数字藏品",
-    title2: "基于区块链技术的独特数字资产，每个藏品都拥有独一无二的身份标识，确保了其稀缺性和唯一性。",
+    title2:
+      "基于区块链技术的独特数字资产，每个藏品都拥有独一无二的身份标识，确保了其稀缺性和唯一性。",
   },
   {
-    img: lbtwo,
+    img: proxy?.$ipfsUrl + "home/lbtwo.png",
     title: "元宇宙会议",
-    title2: "发生在一个由技术构建的数字空间，参与者可以通过虚拟形象进入并进行互动。",
+    title2:
+      "发生在一个由技术构建的数字空间，参与者可以通过虚拟形象进入并进行互动。",
   },
   {
-    img: lbfive,
+    img: proxy?.$ipfsUrl + "home/lbfive.png",
     title: "元宇宙基础建设",
-    title2: "涉及一系列核心技术，如人工智能、区块链、云计算、虚拟现实等，这些技术共同支撑元宇宙的运行和发展。",
+    title2:
+      "涉及一系列核心技术，如人工智能、区块链、云计算、虚拟现实等，这些技术共同支撑元宇宙的运行和发展。",
   },
   {
-    img: lbnight,
+    img: proxy?.$ipfsUrl + "home/lbnight.png",
     title: "元宇宙虚拟旅行",
     title2: "在无法亲临现场的情况下，通过虚拟旅游体验不同地点的风光和文化。",
   },
 ]);
 const twoList = ref([
   {
-    imgurl: byyhree,
+    imgurl: proxy?.$ipfsUrl + "home/byyhree.png",
+    url: "https://x.com/MetaverseKIA",
   },
   {
-    imgurl: btfour,
+    imgurl: proxy?.$ipfsUrl + "home/btfour.png",
+    url: "https://discord.gg/HQxkyZM6kw",
   },
   {
-    imgurl: btone,
+    imgurl: proxy?.$ipfsUrl + "home/btone.png",
+    url: "https://t.me/MetaverseKIApublic",
   },
   {
-    imgurl: btfive,
+    imgurl: proxy?.$ipfsUrl + "home/btfive.png",
+    url: "https://www.youtube.com/@MetaverseKIA",
   },
   {
-    imgurl: bttwo,
+    imgurl: proxy?.$ipfsUrl + "home/bttwo.png",
+    url: "",
   },
 ]);
 
@@ -97,7 +95,6 @@ onMounted(() => {
 });
 
 function byEvents() {
-
   let newDataList = [];
   let current = 0;
   for (let i = 0; i < oneList.value.length; i++) {
@@ -114,24 +111,38 @@ function byEvents() {
   }
   carouselData.value = newDataList;
 }
+const gourl = async (url: string) => {
+  if (url) {
+    window.open(url);
+  } else {
+    await navigator.clipboard.writeText("MetaverseKIA@gmail.com");
+    ElMessage({
+      message: "邮箱复制成功！！！",
+      type: "success",
+    });
+  }
+};
 </script>
 
 <template>
+  <Top activeIndex="/" />
   <div class="search">
-    <Top activeIndex="/" />
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source :src="topbg" type="video/mp4" />
+        <source  :src="proxy?.$ipfsUrl + 'home/matetop.mp4'" type="video/mp4" />
       </video>
     </div>
     <div class="searchText" id="nav">
-      <div class="searchT1">METAVERSE</div>
+      <div class="searchT1">MetaKina元宇宙</div>
       <div class="searchT2">
-        Postscript univerrse,metaphysical universe,metaverse,hypersensitive
-        space,virtual space
+        用区块链技术推进有形世界与无形世界的沟通，给人们
+        带来全面、真实、刺激的交互体验。
       </div>
+      <div class="searchT2">即将开放-敬请期待</div>
     </div>
   </div>
+  <div style="height: 1080px"></div>
+
   <div class="kinachain">
     <div class="kinachaiione">
       <div class="kinachaiionet">
@@ -140,7 +151,7 @@ function byEvents() {
         ？
       </div>
       <div class="kinachaiioneb">
-        人类濒临灭绝。时空之墙正在坍塌，不同的历史时代正在碰撞在一起，黑暗的力量正在穿过时间的裂。你将扮演一名被召唤到宇宙尽头的时间旅行者，参与历史上最伟人的冒险。
+        搭建现实世界与虚拟世界的桥梁，提供一个即时想象和创造的沉浸式虚拟空间，创造任何人都能探索的去中心化社区世界。
       </div>
     </div>
   </div>
@@ -149,7 +160,7 @@ function byEvents() {
     <div class="redline"></div>
   </div>
   <div class="carouselBox">
-    <el-carousel  class="carousel">
+    <el-carousel class="carousel">
       <el-carousel-item
         class="el-car-item"
         v-for="item in carouselData"
@@ -157,8 +168,10 @@ function byEvents() {
       >
         <div v-for="imgItem in item" :key="imgItem.img" class="divSrc">
           <img class="img" :src="imgItem.img" />
-          <div class="title66" style="font-size: 36px;">{{ imgItem.title }}</div>
-          <div class="title66" style="font-size: 28px;">{{ imgItem.title2 }}</div>
+          <div class="title66" style="font-size: 36px">{{ imgItem.title }}</div>
+          <div class="title66" style="font-size: 28px">
+            {{ imgItem.title2 }}
+          </div>
         </div>
       </el-carousel-item>
     </el-carousel>
@@ -186,7 +199,13 @@ function byEvents() {
       提交信息即表示您同意接收新闻、调查和特别优惠。
     </div>
     <div class="metaKinaicon">
-      <img :src="v.imgurl" alt="" srcset="" v-for="(v, _) in twoList" />
+      <img
+        :src="v.imgurl"
+        alt=""
+        srcset=""
+        v-for="(v, _) in twoList"
+        @click="gourl(v.url)"
+      />
     </div>
   </div>
   <Bottom />
@@ -201,7 +220,7 @@ function byEvents() {
 .carouselBox {
   margin: 0 auto;
   // width: 90%;
-  .el-carousel__item{
+  .el-carousel__item {
     left: 130px !important;
   }
 
@@ -262,7 +281,7 @@ function byEvents() {
 .bottom {
   width: 100%;
   height: 382px;
-  background: url("../../assets/images/home/bottombg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/home/bottombg.png") no-repeat;
   background-size: 100%;
   text-align: center;
   margin: 100px 0;
@@ -440,19 +459,21 @@ function byEvents() {
 .search {
   width: 100%;
   height: 1080px;
-  position: relative;
+  position: absolute;
+  top: 0;
   z-index: 1;
 }
 .searchText {
   text-align: center;
   width: 40%;
   margin: 0 auto;
-  margin-top: 20%;
+  margin-top: 15%;
 }
 .searchT1 {
   font-size: 80px;
 }
 .searchT2 {
   font-size: 26px;
+  margin-bottom: 15px;
 }
 </style>

@@ -111,6 +111,55 @@ import GetList from "./components/getList.vue";
         num: 0.256,
         address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
       },
+      {
+        id: 3,
+        title: '第一阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
+      {
+        id: 3,
+        title: '第四阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
+      {
+        id: 3,
+        title: '第二阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
+      {
+        id: 3,
+        title: '第五阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
+      {
+        id: 3,
+        title: '第四阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
+      {
+        id: 3,
+        title: '第二阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
+      {
+        id: 3,
+        title: '第五阶段',
+        date: '2024/12/10 12:00:00',
+        num: 0.256,
+        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
+      },
     ]"/>
   <Bottom />
 </template>

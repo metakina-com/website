@@ -3,7 +3,7 @@
     <person :imgurl="props.imgurl" :circle="circle" @begin="begin" @cancel="cancel"/>
     <div class="card-content" v-show="isShow">
       <div class="imgricon">
-        <img src="../../../assets/images/wakuang.png" class="icon2" alt="wakuang" />
+        <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/wakuang.png" class="icon2" alt="wakuang" />
       </div>
       <div class="cr">
         <div class="stake-amount">
