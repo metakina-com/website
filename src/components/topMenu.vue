@@ -37,9 +37,10 @@ const gourl = (url: string) => {
 </script>
 
 <template>
+  <div class="sj">网站功能正在升级中。。。预计九月份升级完毕，敬请期待。</div>
   <nav class="navbar">
     <div class="logo">
-      <img :src="proxy?.$ipfsUrl + 'home/logo.png'" alt="Logo" />
+      <img :src="proxy?.$ipfsUrl + 'logo.png'" alt="Logo" />
     </div>
     <el-menu
       popper-class="poppertop"
@@ -101,10 +102,10 @@ const gourl = (url: string) => {
         <img :src="proxy?.$ipfsUrl + 'home/byyhree.png'" />
       </div>
       <div @click="gourl('https://discord.gg/HQxkyZM6kw')" class="gourl">
-        <img :src="proxy?.$ipfsUrl + 'home/discord.png'" />
+        <img :src="proxy?.$ipfsUrl + '/discord.png'" />
       </div>
       <div @click="gourl('https://t.me/MetaverseKIApublic')" class="gourl">
-        <img :src="proxy?.$ipfsUrl + 'home/telegram.png'" />
+        <img :src="proxy?.$ipfsUrl + '/telegram.png'" />
       </div>
       <div
         @click="gourl('https://www.youtube.com/@MetaverseKIA')"
@@ -117,10 +118,41 @@ const gourl = (url: string) => {
       </div>
     </div>
     <button class="wallet-button">{{ $t("top.ljieqianbao") }}</button>
+    <div class="language">
+        <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmaUmVKZ3hV3vevTbWBrsk2V8GhUxmQizRJvncRYqEyXpP" />
+        <div>简体中文</div>
+      </div>
   </nav>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+.sj{
+  position: absolute;
+    top: 0;
+    width: 100%;
+    height: 26px;
+    background-color: #409eff;
+    z-index: 99999;
+    text-align: center;
+    font-size: 15px;
+    line-height: 26px;
+
+
+}
+.language{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  img{
+    width: 32px;
+    height: 32px;
+    margin-right: 10px;
+  } 
+
+  div{
+    font-size: 20px;
+  }
+}
 .gourl {
   cursor: pointer;
   padding: 0 5px;

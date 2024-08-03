@@ -142,7 +142,7 @@ const activeTab2 = ref("NFT");
 .content-s {
   width: 532px;
   height: 237px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/csimgbg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/csimgbg.png") no-repeat;
   background-size: contain;
   display: flex;
   flex-direction: column;

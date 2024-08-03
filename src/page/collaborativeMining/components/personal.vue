@@ -23,13 +23,13 @@
           </div>
           <div class="social-icons">
             <img
-              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/telegram.png"
+              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/telegram.png"
               class="icon"
               alt="Twitter"
             />
-            <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/discord.png" class="icon" alt="Twitter" />
+            <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/discord.png" class="icon" alt="Twitter" />
             <img
-              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/telegram.png"
+              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/telegram.png"
               class="icon"
               alt="Twitter"
             />

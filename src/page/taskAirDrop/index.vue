@@ -172,7 +172,7 @@ onMounted(() => {
   height: 600px;
 }
 .bottomimg {
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/boyyomk.png")
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/boyyomk.png")
     no-repeat;
   background-size: 100%;
 }

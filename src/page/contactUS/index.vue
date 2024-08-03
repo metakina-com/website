@@ -148,7 +148,7 @@ const gourl = async (url: string) => {
           </div>
           <div class="us">
             加入我们
-            <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/home/hong.png" alt="" srcset="" />
+            <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png" alt="" srcset="" />
           </div>
         </div>
       </div>
@@ -301,7 +301,7 @@ const gourl = async (url: string) => {
 .bottom {
   width: 100%;
   height: 382px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/bottombg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/bottombg.png") no-repeat;
   background-size: 100%;
   text-align: center;
   margin: 100px 0;
@@ -471,7 +471,7 @@ const gourl = async (url: string) => {
   z-index: 1;
 }
 .video-background {
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmcTXfgYL5R5imAB6Gw2fPxB9Wp8gcjRi3eTV6hipXGDRP/contactUS/topbg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/contactUS/topbg.png") no-repeat;
   background-size: 100%;
   position: absolute;
   top: 0;
