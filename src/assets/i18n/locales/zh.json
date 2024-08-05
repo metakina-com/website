@@ -1,5 +1,6 @@
 {
     "top":{
+        "sj":"网站功能正在升级中。。。预计九月份升级完毕，敬请期待。",
         "shouye":"首页",
         "xmuheji":"项目合集",
         "KIAwk":"KIA挖矿",
@@ -7,6 +8,24 @@
         "xshikt":"限时空投",
         "yuanyuzhou":"元宇宙",
         "more":"更多",
-        "ljieqianbao":"链接钱包"
+        "ljieqianbao":"链接钱包",
+        "home":"首页",
+        "kialiulanqi":"KIA区块浏览器",
+        "sassxit":"元话SAAS系统",
+        "xmhz":"项目合作",
+        "jdwk":"节点挖矿",
+        "hzwk":"合作挖矿",
+        "klgj":"跨链工具",
+        "mwcqianbao":"MWC钱包",
+        "jdkt":"阶段空投",
+        "rwkt":"任务空投",
+        "yzstbj":"宇宙生态布局",
+        "mwcshangc":"MWC商城",
+        "baipishu":"白皮书",
+        "lxwom":"联系我们"
+    },
+    "home":{
+        "jihsu":"技术",
+        "hangyeshuipkftd":"行业高水平开发团队"
     }
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, getCurrentInstance } from "vue";
-
+import {onMounted, defineProps, defineEmits, getCurrentInstance, ref } from "vue";
+import { useI18n } from 'vue-i18n'
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 import router from "../router";
@@ -9,9 +9,22 @@ const emit = defineEmits(["tabScroll"]);
 const props = defineProps({
   activeIndex: String,
 });
+
+const setRootFontSize = () => {
+      const baseSize = 16; // 基础字体大小
+      const scaleFactor = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+      document.documentElement.style.fontSize = `${baseSize * scaleFactor}px`;
+    };
+    onMounted(() => {
+      window.addEventListener('resize', setRootFontSize);
+      setRootFontSize();
+    });
 const handleSelect = (key: string, keyPath: any[]) => {
   if (keyPath[0] == 2) {
+    setTimeout(() => {
     emit("tabScroll", key);
+      
+    }, 100);
     router.push("projectCPT?nav=" + key);
   } else if (key === "webseit") {
     window.open("https://www.metaworldglobal.net/");
@@ -34,10 +47,23 @@ const copy = async () => {
 const gourl = (url: string) => {
   window.open(url);
 };
+const languages = ref([
+  { code: "ZH", name: "中文(简体) - ZH", path: "/" ,abb:'中文(简体)'},
+  { code: "EN", name: "English - EN", path: "/EN" ,abb:'English'},
+  { code: "JA", name: "日本語 - JA", path: "/JA" ,abb:'日本語'},
+  { code: "KO", name: "한국어 - KO", path: "/KO" ,abb:'한국어'},
+]);
+const selectlan = ref('中文(简体)')
+const { locale } = useI18n()
+const switchlg = (v: any) => {
+  locale.value = v.code
+  selectlan.value = v.abb
+};
+
 </script>
 
 <template>
-  <div class="sj">网站功能正在升级中。。。预计九月份升级完毕，敬请期待。</div>
+  <div class="sj">{{ $t("top.sj") }}</div>
   <nav class="navbar">
     <div class="logo">
       <img :src="proxy?.$ipfsUrl + 'logo.png'" alt="Logo" />
@@ -54,46 +80,46 @@ const gourl = (url: string) => {
       @select="handleSelect"
       mode="horizontal"
     >
-      <el-menu-item index="/">首页</el-menu-item>
+      <el-menu-item index="/">{{ $t("top.home") }}</el-menu-item>
       <el-sub-menu index="2">
-        <template #title>项目合集</template>
-        <el-menu-item index="nav">KIA区块浏览器</el-menu-item>
-        <el-menu-item index="nav2">元话SAAS系统</el-menu-item>
-        <el-menu-item index="nav3">项目合作</el-menu-item>
+        <template #title>{{ $t("top.xmuheji") }}</template>
+        <el-menu-item index="nav">{{ $t("top.kialiulanqi") }}</el-menu-item>
+        <el-menu-item index="nav2">{{ $t("top.sassxit") }}</el-menu-item>
+        <el-menu-item index="nav3">{{ $t("top.xmhz") }}</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="3">
-        <template #title>KIA挖矿</template>
-        <el-menu-item index="/node">节点挖矿</el-menu-item>
-        <el-menu-item index="/collaborativeMining">合作挖矿</el-menu-item>
+        <template #title>{{ $t("top.KIAwk") }}</template>
+        <el-menu-item index="/node">{{ $t("top.jdwk") }}</el-menu-item>
+        <el-menu-item index="/collaborativeMining">{{ $t("top.hzwk") }}</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="4">
-        <template #title>生态应用</template>
+        <template #title>{{ $t("top.styy") }}</template>
         <el-menu-item
           index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/"
-          >跨链工具</el-menu-item
+          >{{ $t("top.klgj") }}</el-menu-item
         >
         <el-menu-item
           index="https://kinachain-wgz98ps05b-8aa191d636c74035.testnets.rollbridge.app/"
           >KinaSWAP</el-menu-item
         >
-        <el-menu-item index="https://r200.kinachain.com/">MWC钱包</el-menu-item>
+        <el-menu-item index="https://r200.kinachain.com/">{{ $t("top.mwcqianbao") }}</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="5">
-        <template #title>限时空投</template>
-        <el-menu-item index="/stage">阶段空投</el-menu-item>
-        <el-menu-item index="/task">任务空投</el-menu-item>
+        <template #title>{{ $t("top.xshikt") }}</template>
+        <el-menu-item index="/stage">{{ $t("top.jdkt") }}</el-menu-item>
+        <el-menu-item index="/task">{{ $t("top.rwkt") }}</el-menu-item>
       </el-sub-menu>
       <el-sub-menu index="6">
-        <template #title>元宇宙</template>
-        <el-menu-item index="/metaverse">宇宙生态布局</el-menu-item>
-        <el-menu-item index="webseit">MWC商城</el-menu-item>
+        <template #title>{{ $t("top.yuanyuzhou") }}</template>
+        <el-menu-item index="/metaverse">{{ $t("top.yzstbj") }}</el-menu-item>
+        <el-menu-item index="webseit">{{ $t("top.mwcshangc") }}</el-menu-item>
         <!-- <el-menu-item index="6-2">KIA元宇宙计划</el-menu-item> -->
         <!-- <el-menu-item index="6-3">元宇宙API接口</el-menu-item> -->
       </el-sub-menu>
       <el-sub-menu index="7">
-        <template #title>更多</template>
-        <el-menu-item index="whiteParper">白皮书</el-menu-item>
-        <el-menu-item index="/contactUS">联系我们</el-menu-item>
+        <template #title>{{ $t("top.more") }}</template>
+        <el-menu-item index="whiteParper">{{ $t("top.baipishu") }}</el-menu-item>
+        <el-menu-item index="/contactUS">{{ $t("top.lxwom") }}</el-menu-item>
         <!-- <el-menu-item index="/">合作伙伴</el-menu-item> -->
       </el-sub-menu>
     </el-menu>
@@ -118,39 +144,51 @@ const gourl = (url: string) => {
       </div>
     </div>
     <button class="wallet-button">{{ $t("top.ljieqianbao") }}</button>
-    <div class="language">
-        <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmaUmVKZ3hV3vevTbWBrsk2V8GhUxmQizRJvncRYqEyXpP" />
-        <div>简体中文</div>
-      </div>
+    <el-dropdown style="width: 140px;">
+      <span class="el-dropdown-link">
+        <div class="language">
+          <img
+            src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmaUmVKZ3hV3vevTbWBrsk2V8GhUxmQizRJvncRYqEyXpP"
+          />
+          <div>{{selectlan}}</div>
+        </div>
+      </span>
+      <template #dropdown>
+        <el-dropdown-menu>
+          <el-dropdown-item v-for="v in languages" @click=switchlg(v)>{{
+            v.name
+          }}</el-dropdown-item>
+        </el-dropdown-menu>
+      </template>
+    </el-dropdown>
   </nav>
 </template>
 
 <style scoped lang="scss">
-.sj{
+.sj {
   position: absolute;
-    top: 0;
-    width: 100%;
-    height: 26px;
-    background-color: #409eff;
-    z-index: 99999;
-    text-align: center;
-    font-size: 15px;
-    line-height: 26px;
-
-
+  top: 0;
+  width: 100%;
+  height: 26px;
+  background-color: #409eff;
+  z-index: 99999;
+  text-align: center;
+  font-size: 15px;
+  line-height: 26px;
 }
-.language{
+.language {
   display: flex;
   align-items: center;
   cursor: pointer;
-  img{
+  img {
     width: 32px;
     height: 32px;
     margin-right: 10px;
-  } 
+  }
 
-  div{
+  div {
     font-size: 20px;
+    color: #fff;
   }
 }
 .gourl {

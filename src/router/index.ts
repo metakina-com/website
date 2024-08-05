@@ -43,7 +43,7 @@ const routes = [
     path: '/projectCPT',
     name: 'projectCPT',
     component: ProjectCPT,
-    meta: { scrollToTop: true }
+    // meta: { scrollToTop: true }
   },
   {
     path: '/metaverse',

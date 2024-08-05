@@ -3,6 +3,8 @@ import Top from "../components/topMenu.vue";
 import Bottom from "../components/bottom.vue";
 import { ref, onMounted, onUnmounted, getCurrentInstance  } from "vue";
 import router from "../router";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const animatedDiv:any = ref(null);
 const animatedDiv2:any = ref(null);
 
@@ -39,8 +41,8 @@ const oneList = ref([
     height: "584px",
     color: "#fff",
     arrows: proxy?.$ipfsUrl + "home/bai.png",
-    t1: "技术",
-    t2: "行业高水平开发团队",
+    t1:t("home.jihsu") ,
+    t2:t("home.hangyeshuipkftd"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/tf.png",
@@ -159,6 +161,7 @@ const threeList = ref([
 const goUrl = () => {
   router.push("/metaverse");
 };
+
 </script>
 
 <template>
@@ -495,6 +498,8 @@ const goUrl = () => {
   margin-bottom: 40px; /* 项目间的底部外边距 */
   background-size: cover;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 .saasSystem {
   padding: 0 10%;

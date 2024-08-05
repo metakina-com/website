@@ -3,11 +3,21 @@ import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
 import Pledge from "../../page/collaborativeMining/components/pledge.vue";
 import { ref, getCurrentInstance } from "vue";
+import { useTransition } from "@vueuse/core";
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
-
 const activeTab = ref("ETH");
 const activeTab2 = ref("NFT");
+const source = ref(0);
+const source2 = ref(0);
+const outputValue = useTransition(source, {
+  duration: 1500,
+});
+const outputValue2 = useTransition(source2, {
+  duration: 1500,
+});
+source.value = 120000000;
+source2.value = 45000;
 </script>
 
 <template>
@@ -32,11 +42,25 @@ const activeTab2 = ref("NFT");
     <div class="content">
       <div v-if="activeTab === 'ETH'" class="stat">
         <div class="content-s">
-          <div class="number">120000000</div>
+          <div class="number">
+            <el-statistic
+              :value-style="{
+                fontSize: '60px',
+                color: '#fff',
+              }"
+              :value="outputValue"
+            />
+          </div>
           <div class="description">ETH全网挖矿总人数（人）</div>
         </div>
         <div class="content-s">
-          <div class="number">45000</div>
+          <div class="number"><el-statistic
+              :value-style="{
+                fontSize: '60px',
+                color: '#fff',
+              }"
+              :value="outputValue2"
+            /></div>
           <div class="description">您共计已产出KIA（枚）</div>
         </div>
       </div>
@@ -50,7 +74,7 @@ const activeTab2 = ref("NFT");
           <div class="description">您共计已产出KIA（枚）</div>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
   <div class="container">
     <div class="tabs">
@@ -142,7 +166,8 @@ const activeTab2 = ref("NFT");
 .content-s {
   width: 532px;
   height: 237px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/csimgbg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/csimgbg.png")
+    no-repeat;
   background-size: contain;
   display: flex;
   flex-direction: column;

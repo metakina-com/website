@@ -7,6 +7,9 @@ import Top from "./components/topMenu.vue";
 
 </script>
 <style scoped>
+/* body{
+  font-size: 3.43rem;
+} */
 .logo {
   height: 6em;
   padding: 1.5em;

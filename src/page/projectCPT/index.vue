@@ -118,9 +118,9 @@ const resumeScroll = (v: number) => {
     ? (animationState.value = "running")
     : (animationState2.value = "running");
 };
-
 const tabScroll = (v: any) => {
   const element = document.getElementById(v);
+
   if (element) {
     element.scrollIntoView({ behavior: "smooth" });
   }
@@ -138,7 +138,7 @@ onMounted(() => {
         <source :src="proxy?.$ipfsUrl + 'project/topbg.mp4' " type="video/mp4" />
       </video>
     </div>
-    <div class="searchText" id="nav">
+    <div class="searchText" >
       <div class="searchT1">
         <text style="color: #e62a2a">基纳链</text>浏览器
       </div>
@@ -201,8 +201,8 @@ onMounted(() => {
       </div>
     </div>
   </div>
-  <div class="title">
-    <div class="titleword" id="nav3">我们的项目</div>
+  <div class="title" id="nav3">
+    <div class="titleword" >我们的项目</div>
     <div class="redline"></div>
   </div>
   <div class="navtwo">

@@ -1,6 +1,27 @@
 {
-    "top":{
-        "shouye":"home",
-        "xmuheji":"xmuheji"
+    "top": {
+        "sj": "Website functions are being upgraded... Expected completion in September. Stay tuned.",
+        "shouye": "Home",
+        "xmuheji": "Project Collection",
+        "KIAwk": "KIA Mining",
+        "styy": "Ecosystem Applications",
+        "xshikt": "Limited-time Airdrop",
+        "yuanyuzhou": "Metaverse",
+        "more": "More",
+        "ljieqianbao": "Link Wallet",
+        "home": "Home",
+        "kialiulanqi": "KIA Block Explorer",
+        "sassxit": "Meta SAAS System",
+        "xmhz": "Project Cooperation",
+        "jdwk": "Node Mining",
+        "hzwk": "Cooperative Mining",
+        "klgj": "Cross-chain Tools",
+        "mwcqianbao": "MWC Wallet",
+        "jdkt": "Phase Airdrop",
+        "rwkt": "Task Airdrop",
+        "yzstbj": "Universe Ecosystem Layout",
+        "mwcshangc": "MWC Mall",
+        "baipishu": "White Paper",
+        "lxwom": "Contact Us"
     }
 }
