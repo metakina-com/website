@@ -11,11 +11,31 @@ const messages = {
   JA,
   KO,
 };
-
+//获取浏览器默认语言
+const browserLanguage = navigator.language;
+let locale;
+switch (browserLanguage) {
+  case "zh-CN":
+    locale = "ZH";
+    break;
+  case "en":
+  case "en-US":
+  case "en-GB":
+    locale = "EN";
+    break;
+  case "ja":
+    locale = "JA";
+    break;
+  case "ko":
+    locale = "KO";
+    break;
+  default:
+    locale = "EN";
+}
 const i18n = createI18n({
   legacy: false, // 禁用 legacy 模式
-  locale: "ZH", // 设置默认语言
-  fallbackLocale: "ZH",
+  locale: locale, // 设置默认语言
+  fallbackLocale: locale,
   messages,
 });
 
