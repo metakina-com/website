@@ -4,6 +4,8 @@ import Bottom from "../../components/bottom.vue";
 
 import { ElMessage } from "element-plus";
 import { ref, getCurrentInstance, onMounted } from "vue";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const input = ref("");
@@ -11,61 +13,54 @@ const search = (e: any) => {
   if (e) {
   }
 };
-const oneList = ref([
+const getoneList = () => [
   {
     img: proxy?.$ipfsUrl + "home/lbthree.png",
-    title: "元宇宙社交",
-    title2: "通过VR、AR和3D技术，打造三维空间的互动社交体验。",
+    title: t("metaverse.yuanyuzhoushe"),
+    title2: t("metaverse.tgvrdzwwkj"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbeight.png",
-    title: "元宇宙展厅",
-    title2:
-      "利用虚拟现实技术在元宇宙中构建的展览空间，为艺术家和创作者提供了一个展示作品的新渠道。",
+    title: t("metaverse.yyzzhant"),
+    title2: t("metaverse.liyxujinxian"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbfour.png",
-    title: "元宇宙游戏",
-    title2:
-      "结合了虚拟现实技术、区块链、以及在线多人互动，为用户提供一个沉浸式的虚拟世界。",
+    title: t("metaverse.yunyuzhouyouxi"),
+    title2: t("metaverse.jiehexunisixnah"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbsix.png",
-    title: "元宇宙数字孪生",
-    title2:
-      "通过创建物理实体的数字副本来实现对现实世界的精确映射和实时监控。在智慧城市、自动驾驶等领域有着广泛的应用。",
+    title: t("metaverse.yyzszls"),
+    title2: t("metaverse.wulishiyi"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbone.png",
-    title: "元宇宙虚拟数字人",
-    title2:
-      "通过计算机图形学技术创造的与人类形象接近的数字化形象，并被赋予特定的人物身份设定。",
+    title: t("metaverse.yunyuzhoushuziren"),
+    title2: t("metaverse.jisuanqituxjishu"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbseven.png",
-    title: "元宇宙数字藏品",
-    title2:
-      "基于区块链技术的独特数字资产，每个藏品都拥有独一无二的身份标识，确保了其稀缺性和唯一性。",
+    title: t("metaverse.yunyuzshuzucp"),
+    title2: t("metaverse.sjiyuqukljishu"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbtwo.png",
-    title: "元宇宙会议",
-    title2:
-      "发生在一个由技术构建的数字空间，参与者可以通过虚拟形象进入并进行互动。",
+    title: t("metaverse.yunyuzhou1huiyi"),
+    title2: t("metaverse.zaifashengyige"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbfive.png",
-    title: "元宇宙基础建设",
-    title2:
-      "涉及一系列核心技术，如人工智能、区块链、云计算、虚拟现实等，这些技术共同支撑元宇宙的运行和发展。",
+    title: t("metaverse.yunyuhoujichujians"),
+    title2: t("metaverse.shejiyixiek"),
   },
   {
     img: proxy?.$ipfsUrl + "home/lbnight.png",
-    title: "元宇宙虚拟旅行",
-    title2: "在无法亲临现场的情况下，通过虚拟旅游体验不同地点的风光和文化。",
+    title: t("metaverse.yuanyuzhoulux"),
+    title2: t("metaverse.wufaqlxcdqk"),
   },
-]);
-const twoList = ref([
+]
+const gettwoList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "home/byyhree.png",
     url: "https://x.com/MetaverseKIA",
@@ -86,15 +81,21 @@ const twoList = ref([
     imgurl: proxy?.$ipfsUrl + "home/bttwo.png",
     url: "",
   },
-]);
+]
 
 const carouselData: any = ref([]);
-
+const oneList = ref(getoneList())
+const twoList = ref(gettwoList())
+const switchLanguage = () => {
+  oneList.value = getoneList();
+  twoList.value = gettwoList();
+  byEvents();
+}
 onMounted(() => {
   byEvents();
 });
 
-function byEvents() {
+const byEvents = () => {
   let newDataList = [];
   let current = 0;
   for (let i = 0; i < oneList.value.length; i++) {
@@ -117,7 +118,7 @@ const gourl = async (url: string) => {
   } else {
     await navigator.clipboard.writeText("MetaverseKIA@gmail.com");
     ElMessage({
-      message: "邮箱复制成功！！！",
+      message: t("home.youxiangfuzhicg"),
       type: "success",
     });
   }
@@ -125,38 +126,37 @@ const gourl = async (url: string) => {
 </script>
 
 <template>
-  <Top activeIndex="/" />
+  <Top activeIndex="/" @switchLanguage="switchLanguage"/>
   <div class="search">
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source  :src="proxy?.$ipfsUrl + 'home/matetop.mp4'" type="video/mp4" />
+        <source :src="proxy?.$ipfsUrl + 'home/matetop.mp4'" type="video/mp4" />
       </video>
     </div>
     <div class="searchText" id="nav">
-      <div class="searchT1">MetaKina元宇宙</div>
+      <div class="searchT1">{{t("home.mkyyz")}}</div>
       <div class="searchT2">
-        用区块链技术推进有形世界与无形世界的沟通，给人们
-        带来全面、真实、刺激的交互体验。
+        {{t("metaverse.qukljishuyousj")}}
       </div>
-      <div class="searchT2">即将开放-敬请期待</div>
+      <div class="searchT2"> {{t("metaverse.jjkfjqqd")}}</div>
     </div>
   </div>
-  <div style="height: 1080px"></div>
+  <div class="zhanweifu"></div>
 
   <div class="kinachain">
     <div class="kinachaiione">
       <div class="kinachaiionet">
-        <div>什么是</div>
-        <div style="color: #e62a2a">“METAKINA 元宇宙”</div>
+        <div>{{t("metaverse.smshi")}}</div>
+        <div style="color: #e62a2a">“{{t("metaverse.matayuanyuzhou")}}”</div>
         ？
       </div>
       <div class="kinachaiioneb">
-        搭建现实世界与虚拟世界的桥梁，提供一个即时想象和创造的沉浸式虚拟空间，创造任何人都能探索的去中心化社区世界。
+        {{t("metaverse.dajianxianshi")}}
       </div>
     </div>
   </div>
   <div class="title">
-    <div class="titleword">MetaKina元宇宙生态系统</div>
+    <div class="titleword">{{t("metaverse.yyzhoushengt")}}</div>
     <div class="redline"></div>
   </div>
   <div class="carouselBox">
@@ -168,36 +168,30 @@ const gourl = async (url: string) => {
       >
         <div v-for="imgItem in item" :key="imgItem.img" class="divSrc">
           <img class="img" :src="imgItem.img" />
-          <div class="title66" style="font-size: 36px">{{ imgItem.title }}</div>
-          <div class="title66" style="font-size: 28px">
+          <div class="title661">{{ imgItem.title }}</div>
+          <div class="title662">
             {{ imgItem.title2 }}
           </div>
         </div>
       </el-carousel-item>
     </el-carousel>
   </div>
-  <div class="title" style="padding-bottom: 40px">
-    <div class="titleword">与我们保持联系</div>
+  <div class="title ywombcll">
+    <div class="titleword">{{t("metaverse.yuwombaochilx")}}</div>
     <div class="redline"></div>
   </div>
   <div class="metaKina">
-    <div style="font-size: 26px; color: #f9f9f9">
-      将最新新闻、活动和故事直接发送到您的收件
-    </div>
+    <div class="fsndyj">{{t("metaverse.jiangzuixwen")}}</div>
     <div class="metaKinabody">
       <el-input
         class="searchInput"
         v-model="input"
-        placeholder="电子邮件地址"
+        :placeholder="t('metaverse.dzyoujiandihzi')"
         @change="search"
       />
-      <el-button type="danger" class="btn">订阅</el-button>
+      <el-button type="danger" class="btn">{{t("metaverse.dingyue")}}</el-button>
     </div>
-    <div
-      style="font-size: 24px; color: #f9f9f9; position: relative; left: -210px"
-    >
-      提交信息即表示您同意接收新闻、调查和特别优惠。
-    </div>
+    <div class="tbyh">{{t("metaverse.tijiaoxxi")}}</div>
     <div class="metaKinaicon">
       <img
         :src="v.imgurl"
@@ -212,6 +206,22 @@ const gourl = async (url: string) => {
 </template>
 
 <style scoped lang="scss">
+.tbyh {
+  font-size: 24px;
+  color: #f9f9f9;
+  position: relative;
+  // left: -210px;
+}
+.fsndyj {
+  font-size: 26px;
+  color: #f9f9f9;
+}
+.ywombcll {
+  padding-bottom: 40px;
+}
+.zhanweifu {
+  height: 1080px;
+}
 .lbbg {
   /* width: 80%; */
   margin: 0 auto;
@@ -230,7 +240,9 @@ const gourl = async (url: string) => {
     .el-car-item {
       width: 100%;
       height: 420px;
+      width: 89%;
       display: flex;
+      justify-content: center;
       .divSrc {
         width: 520px;
         height: 520px;
@@ -239,7 +251,12 @@ const gourl = async (url: string) => {
           width: 520px;
           height: 242px;
         }
-        .title66 {
+        .title661 {
+          color: #fff;
+          font-size: 36px;
+        }
+        .title662 {
+          font-size: 28px;
           color: #fff;
         }
       }
@@ -281,7 +298,8 @@ const gourl = async (url: string) => {
 .bottom {
   width: 100%;
   height: 382px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/bottombg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/bottombg.png")
+    no-repeat;
   background-size: 100%;
   text-align: center;
   margin: 100px 0;

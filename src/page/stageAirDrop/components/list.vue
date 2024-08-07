@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="header-title" style="width: 10%">阶段</div>
-      <div class="header-title" style="width: 10%">数量（枚）</div>
-      <div class="header-title" style="width: 20%">开始时间</div>
-      <div class="header-title" style="width: 40%">进度</div>
+      <div class="header-title" style="width: 10%">{{ t("stageAirDrop.jieduan") }}</div>
+      <div class="header-title" style="width: 10%">{{ t("stageAirDrop.shuliang") }}</div>
+      <div class="header-title" style="width: 20%">{{ t("stageAirDrop.kssj") }}</div>
+      <div class="header-title" style="width: 40%">{{ t("stageAirDrop.jdu") }}</div>
       <div class="header-title" style="width: 10%"></div>
     </div>
     <div v-for="(v, i) in props.listData" :key="i" class="stage">
@@ -13,8 +13,8 @@
       <div class="stage-date">{{ v.date }}</div>
       <div class="progress">
         <div class="progress-text2">
-          <div>已领取（枚）：{{ v.received }}</div>
-          <div>未领取（枚）：{{ v.quantity - v.received }}</div>
+          <div>{{ t("stageAirDrop.yilqum") }}{{ v.received }}</div>
+          <div>{{ t("stageAirDrop.weiquw") }}{{ v.quantity - v.received }}</div>
         </div>
         <div class="progress-container">
           <div
@@ -29,7 +29,7 @@
 
       <div class="button-container">
         <button
-          :class="['stage-button', v.status !== '领取' ? 'disabled' : '']"
+          :class="['stage-button', v.status !== t('stageAirDrop.lqu') ? 'disabled' : '']"
         >
           {{ v.status }}
         </button>
@@ -39,6 +39,8 @@
 </template>
 <script setup lang="ts">
 import {  defineProps } from "vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 interface Stage {
   id: number;
   title: string;

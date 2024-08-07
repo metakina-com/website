@@ -3,164 +3,171 @@ import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
 import List from "./components/list.vue";
 import GetList from "./components/getList.vue";
-
-
-
+import { useI18n } from "vue-i18n";
+import { ref } from "vue";
+const { t } = useI18n();
+const getListData: any = () => [
+  {
+    id: 1,
+    title: t("stageAirDrop.dyjd"),
+    quantity: 1000,
+    received: 200,
+    date: "2024/08/10 12:00:00",
+    status: t("stageAirDrop.lqu"),
+  },
+  {
+    id: 2,
+    title: t("stageAirDrop.dejd"),
+    quantity: 900,
+    received: 500,
+    date: "2024/10/10 12:00:00",
+    status: t("stageAirDrop.yilqu"),
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dsjd"),
+    quantity: 800,
+    received: 800,
+    date: "2024/12/10 12:00:00",
+    status: t("stageAirDrop.dailqu"),
+  },
+  {
+    id: 1,
+    title: t("stageAirDrop.dsijd"),
+    quantity: 1000,
+    received: 200,
+    date: "2024/08/10 12:00:00",
+    status: t("stageAirDrop.lqu"),
+  },
+  {
+    id: 2,
+    title: t("stageAirDrop.dejd"),
+    quantity: 900,
+    received: 500,
+    date: "2024/10/10 12:00:00",
+    status: t("stageAirDrop.yilqu"),
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dsjd"),
+    quantity: 800,
+    received: 800,
+    date: "2024/12/10 12:00:00",
+    status: t("stageAirDrop.dailqu"),
+  },
+  {
+    id: 1,
+    title: t("stageAirDrop.dyjd"),
+    quantity: 1000,
+    received: 200,
+    date: "2024/08/10 12:00:00",
+    status: t("stageAirDrop.lqu"),
+  },
+  {
+    id: 2,
+    title: t("stageAirDrop.dejd"),
+    quantity: 900,
+    received: 500,
+    date: "2024/10/10 12:00:00",
+    status: t("stageAirDrop.yilqu"),
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dsjd"),
+    quantity: 800,
+    received: 800,
+    date: "2024/12/10 12:00:00",
+    status: t("stageAirDrop.dailqu"),
+  },
+]
+const getListData2: any = () => [
+  {
+    id: 3,
+    title: t("stageAirDrop.dejd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dsjd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dejd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dwjd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dejd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dsjd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dejd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dejd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+  {
+    id: 3,
+    title: t("stageAirDrop.dwjd"),
+    date: "2024/12/10 12:00:00",
+    num: 0.256,
+    address: "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
+  },
+]
+const listData = ref(getListData())
+const listData2 = ref(getListData2())
+const switchLanguage = () => {
+  listData.value = getListData();
+  listData2.value = getListData2();
+}
 </script>
 
 <template>
-  <Top activeIndex="/stage" />
+  <Top activeIndex="/stage" @switchLanguage="switchLanguage" />
   <div class="explain">
     <div class="content">
-      <text class="t1">Kina官方阶段性</text>
-      <text class="t2">空投KIA</text>
+      <text class="t1">{{ t("stageAirDrop.gfjdx") }}</text>
+      <text class="t2">{{ t("stageAirDrop.ktkia") }}</text>
     </div>
     <div style="font-size: 18px; width: 50%">
-      这里是Kina官方阶段性空投KIA的具体这里是Kina官方阶段性空投KIA的具体这里是Kina官方阶段性空投KIA的具体这里是Kina官方阶段性空投KIA的具体这里是Kina官方阶段性空投KIA的具体这里是Kina官方阶段性空投KIA的具体这里是Kina官方阶段性空投KIA的具体
+      {{ t("stageAirDrop.kinasjieshao") }}
     </div>
   </div>
-  <List
-    :listData="[
-      {
-        id: 1,
-        title: '第一阶段',
-        quantity: 1000,
-        received: 200,
-        date: '2024/08/10 12:00:00',
-        status: '领取',
-      },
-      {
-        id: 2,
-        title: '第二阶段',
-        quantity: 900,
-        received: 500,
-        date: '2024/10/10 12:00:00',
-        status: '已领取',
-      },
-      {
-        id: 3,
-        title: '第三阶段',
-        quantity: 800,
-        received: 800,
-        date: '2024/12/10 12:00:00',
-        status: '待领取',
-      },
-      {
-        id: 1,
-        title: '第一阶段',
-        quantity: 1000,
-        received: 200,
-        date: '2024/08/10 12:00:00',
-        status: '领取',
-      },
-      {
-        id: 2,
-        title: '第二阶段',
-        quantity: 900,
-        received: 500,
-        date: '2024/10/10 12:00:00',
-        status: '已领取',
-      },
-      {
-        id: 3,
-        title: '第三阶段',
-        quantity: 800,
-        received: 800,
-        date: '2024/12/10 12:00:00',
-        status: '待领取',
-      },
-      {
-        id: 1,
-        title: '第一阶段',
-        quantity: 1000,
-        received: 200,
-        date: '2024/08/10 12:00:00',
-        status: '领取',
-      },
-      {
-        id: 2,
-        title: '第二阶段',
-        quantity: 900,
-        received: 500,
-        date: '2024/10/10 12:00:00',
-        status: '已领取',
-      },
-      {
-        id: 3,
-        title: '第三阶段',
-        quantity: 800,
-        received: 800,
-        date: '2024/12/10 12:00:00',
-        status: '待领取',
-      },
-    ]"
+  <List :listData="listData" />
+  <GetList
+    :listData="listData2"
   />
-   <GetList  :listData="[
-    
-      {
-        id: 3,
-        title: '第三阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第三阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第一阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第四阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第二阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第五阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第四阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第二阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-      {
-        id: 3,
-        title: '第五阶段',
-        date: '2024/12/10 12:00:00',
-        num: 0.256,
-        address: '0x5b8ACF7E2672C4d7D665A661A574a811224394a27',
-      },
-    ]"/>
   <Bottom />
 </template>
 

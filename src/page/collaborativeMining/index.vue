@@ -4,6 +4,8 @@ import Bottom from "../../components/bottom.vue";
 import Pledge from "../../page/collaborativeMining/components/pledge.vue";
 import { ref, getCurrentInstance } from "vue";
 import { useTransition } from "@vueuse/core";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const activeTab = ref("ETH");
@@ -51,30 +53,50 @@ source2.value = 45000;
               :value="outputValue"
             />
           </div>
-          <div class="description">ETH全网挖矿总人数（人）</div>
+          <div class="description">{{ t("projectCPT.ethwkzrs") }}</div>
         </div>
         <div class="content-s">
-          <div class="number"><el-statistic
+          <div class="number">
+            <el-statistic
+              class="ekstatice"
               :value-style="{
                 fontSize: '60px',
                 color: '#fff',
               }"
               :value="outputValue2"
-            /></div>
-          <div class="description">您共计已产出KIA（枚）</div>
+            />
+          </div>
+          <div class="description">{{ t("projectCPT.rycskiabi") }}</div>
         </div>
       </div>
       <div v-if="activeTab === 'BSC'" class="stat">
         <div class="content-s">
-          <div class="number">120000000</div>
-          <div class="description">BSC全网挖矿总人数（人）</div>
+          <div class="number">
+            <el-statistic
+              :value-style="{
+                fontSize: '60px',
+                color: '#fff',
+              }"
+              :value="outputValue"
+            />
+          </div>
+          <div class="description">{{ t("projectCPT.bscwkzrs") }}</div>
         </div>
         <div class="content-s">
-          <div class="number">45000</div>
-          <div class="description">您共计已产出KIA（枚）</div>
+          <div class="number">
+            <el-statistic
+              class="ekstatice"
+              :value-style="{
+                fontSize: '60px',
+                color: '#fff',
+              }"
+              :value="outputValue2"
+            />
+          </div>
+          <div class="description">{{ t("projectCPT.rycskiabi") }}</div>
         </div>
       </div>
-    </div> 
+    </div>
   </div>
   <div class="container">
     <div class="tabs">
@@ -87,10 +109,10 @@ source2.value = 45000;
       </div>
       <div
         class="tab2"
-        :class="{ active: activeTab2 === '代币' }"
-        @click="activeTab2 = '代币'"
+        :class="{ active: activeTab2 === t('projectCPT.daibi') }"
+        @click="activeTab2 = t('projectCPT.daibi')"
       >
-        代币
+        {{ t("projectCPT.daibi") }}
       </div>
       <div
         class="tab2"
@@ -108,7 +130,7 @@ source2.value = 45000;
           :key="index"
         />
       </div>
-      <div v-if="activeTab2 === '代币'" class="statc">
+      <div v-if="activeTab2 === t('projectCPT.daibi')" class="statc">
         <Pledge
           :imgurl="proxy?.$ipfsUrl + 'ETH.png'"
           :circle="true"
@@ -130,6 +152,10 @@ source2.value = 45000;
 </template>
 
 <style scoped>
+.ekstatice {
+  font-size: 60px;
+  color: #fff;
+}
 .container {
   padding: 20px 0;
 }

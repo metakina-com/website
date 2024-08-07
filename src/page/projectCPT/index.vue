@@ -6,100 +6,109 @@ import Bottom from "../../components/bottom.vue";
 import { Search } from "@element-plus/icons-vue";
 import { ref, onMounted, getCurrentInstance } from "vue";
 import { useRoute } from "vue-router";
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 
-const navoneList = ref([
+const getNavoneList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "project/boxf.png",
-    t1: "数字藏品SaaS系统",
-    t2: "提供数字藏品IP、铸造、营销、交易、版权、安全、资源的一站式全套解决方案",
+    t1:t("projectCPT.szcpxt"),
+    t2:t("projectCPT.szcpip"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/boxs.png",
-    t1: "区块链+云原生",
-    t2: "满足客户高并发、高安全、高效率的需求与应用场景",
+    t1:t("projectCPT.qklyys"),
+    t2:t("projectCPT.mzkhgbf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/boxo.png",
-    t1: "3D展馆+元宇宙",
-    t2: "提升用户体验，赋能企业品牌营销与战略布局",
+    t1:t("projectCPT.tdzgyyz"),
+    t2:t("projectCPT.tsyhty"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/boxt.png",
-    t1: "行业解决方案",
-    t2: "适用于银行、物联网、教育、医疗、公证、版权管理等多行业",
+    t1:t("projectCPT.hyjjfa"),
+    t2:t("projectCPT.syyyh"),
   },
-]);
-const navtwoList = ref([
+]
+const getNavtwoList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "project/psix.png",
-    t1: "APP定制开发",
+    t1:t("projectCPT.dzkf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/pone.png",
-    t1: "DAPP定制化开发",
+    t1:t("projectCPT.dzhkf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/ps.png",
-    t1: "DEFI开发",
+    t1:t("projectCPT.defikaifa"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/pf.png",
-    t1: "SAAS系统NFT板块开发",
+    t1:t("projectCPT.nftmkkf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/pfive.png",
-    t1: "APP定制开发",
+    t1:t("projectCPT.bpsmtxf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/pt.png",
-    t1: "DAPP定制化开发",
+    t1:t("projectCPT.qkldsdzkf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/pseven.png",
-    t1: "DEFI开发",
+    t1:t("projectCPT.glkf"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/peight.png",
-    t1: "SAAS系统NFT板块开发",
+    t1:t("projectCPT.lykf"),
   },
-]);
-const navthreeList = ref([
+]
+const getNavthreeList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "project/aleight.png",
-    t1: "Cat Man 案例展示",
+    t1:t("projectCPT.catanlizs"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/alfive.png",
-    t1: "星际争霸案例展示",
+    t1:t("projectCPT.xjzbalzs"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/alseven.png",
-    t1: "Cat Man 案例展示",
+    t1:t("projectCPT.catanlizs"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/alf.png",
-    t1: "矿机挖矿案例展示",
+    t1:t("projectCPT.kjwkalzs"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/alone.png",
-    t1: "双币质押案例展示",
+    t1:t("projectCPT.sbzyalzs"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/alsix.png",
-    t1: "算力挖矿案例展示",
+    t1:t("projectCPT.slwkalzs"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/altwo.png",
-    t1: "元时空案例展示",
+    t1:t("projectCPT.yskanlz"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "project/althree.png",
-    t1: "异国怪兽案例展示",
+    t1:t("projectCPT.yggsalsz"),
   },
-]);
+]
+const navoneList = ref(getNavoneList())
+const navtwoList = ref(getNavtwoList())
+const navthreeList = ref(getNavthreeList())
+const switchLanguage = () => {
+  navoneList.value = getNavoneList();
+  navtwoList.value = getNavtwoList();
+  navthreeList.value = getNavthreeList();
+}
 const animationState = ref("running");
 const animationState2 = ref("running");
 const input = ref("");
@@ -125,13 +134,14 @@ const tabScroll = (v: any) => {
     element.scrollIntoView({ behavior: "smooth" });
   }
 };
+
 onMounted(() => {
   tabScroll(useRoute().query.nav);
 });
 </script>
 
 <template>
-  <Top activeIndex="/projectCPT" @tabScroll="tabScroll" />
+  <Top activeIndex="/projectCPT" @tabScroll="tabScroll" @switchLanguage="switchLanguage"/>
   <div class="search">
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
@@ -140,15 +150,15 @@ onMounted(() => {
     </div>
     <div class="searchText" >
       <div class="searchT1">
-        <text style="color: #e62a2a">基纳链</text>浏览器
+        <text style="color: #e62a2a">{{t("projectCPT.jnl")}}</text>{{t("projectCPT.llq")}}
       </div>
       <div class="searchT2">
-        查询钱包地址，链接自己或别人钱包地址下有哪些数字藏品、交易记录、空投到账号等；查询合约地址，了解项目的基本信息、交易记录。持有人数、判断项目的风险与价值等
+        {{t("projectCPT.cxqbdz")}}
       </div>
       <el-input
         class="searchInput"
         v-model="input"
-        placeholder="通过地址、区块高度或交易哈希搜索"
+        :placeholder="t('projectCPT.tddz')"
         @change="search"
         :prefix-icon="Search"
       />
@@ -166,24 +176,24 @@ onMounted(() => {
       srcset=""
     />
     <div class="saasright" >
-      <div>数字藏品与数字资产</div>
-      <div>营销<text style="color: #e62a2a">SaaS系统</text></div>
+      <div>{{t("projectCPT.szcoyszzc")}}</div>
+      <div>{{t("projectCPT.yyxx")}}<text style="color: #e62a2a">{{t("projectCPT.saasxxt")}}</text></div>
       <div style="font-size: 26px; width: 52%; text-align: right">
-        开拓新用户、市场营销、商品促销、带货、品牌营销、事件营销、慈善公益、粉丝与用户运营、会销礼品等
+        {{t("projectCPT.ksadpcs")}}
       </div>
-      <el-button type="danger" class="btn">开始试用</el-button>
+      <el-button type="danger" class="btn">{{t("projectCPT.kssy")}}</el-button>
     </div>
   </div>
   <div class="cpjs">
     <div class="cpjsbg"></div>
     <div class="hbg">
       <text style="margin-left: 100px"
-        >深度应用于 区块链 | 文旅 | 美妆 | 家用电器 | 快消品等</text
+        > {{t("projectCPT.sdyyqkl")}}</text
       >
     </div>
   </div>
   <div class="title">
-    <div class="titleword">NFTsaas系统功能生态</div>
+    <div class="titleword">{{t("projectCPT.nftxtst")}}</div>
     <div class="redline"></div>
   </div>
   <div class="navone">
@@ -202,7 +212,7 @@ onMounted(() => {
     </div>
   </div>
   <div class="title" id="nav3">
-    <div class="titleword" >我们的项目</div>
+    <div class="titleword" >{{t("projectCPT.wmdxmu")}}</div>
     <div class="redline"></div>
   </div>
   <div class="navtwo">
@@ -212,7 +222,7 @@ onMounted(() => {
     </div>
   </div>
   <div class="title">
-    <div class="titleword">案例展示</div>
+    <div class="titleword">{{t("projectCPT.alzsss")}}</div>
     <div class="redline"></div>
   </div>
   <div
@@ -321,6 +331,7 @@ onMounted(() => {
   justify-content: center;
   position: relative;
   top: -6px;
+  padding: 5px 10px;
 }
 .navthreebody {
   width: 480px;
@@ -339,6 +350,7 @@ onMounted(() => {
   margin: 0 auto;
   flex-wrap: wrap;
   margin-bottom: 100px;
+  justify-content: center;
 }
 .navtwot1 {
   height: 82px;
@@ -351,6 +363,7 @@ onMounted(() => {
   justify-content: center;
   position: relative;
   top: -6px;
+  padding: 0 10px;
 }
 .navtwobody {
   width: 355px;
@@ -388,6 +401,7 @@ onMounted(() => {
   margin: 0 auto;
   flex-wrap: wrap;
   margin-bottom: 100px;
+  justify-content: center;
 }
 .navonebody {
   width: 610px;

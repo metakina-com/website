@@ -4,7 +4,8 @@ import Bottom from "../../components/bottom.vue";
 import { ElMessage } from "element-plus";
 
 import { ref, getCurrentInstance } from "vue";
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const input = ref("");
@@ -12,27 +13,24 @@ const search = (e: any) => {
   if (e) {
   }
 };
-const oneList = ref([
+const getOneList = () => [
   {
     img: proxy?.$ipfsUrl + "contactUS/lbone.png",
-    title: "元宇宙工作室",
-    title2:
-      "你正帮助客户设计他们的 web3 策略并考虑与 The Sandbox 合作?我们也为您提供更多空间。",
+    title: t("contactUS.yyzgzs"),
+    title2: t("contactUS.sjejiwebcl"),
   },
   {
     img: proxy?.$ipfsUrl + "contactUS/lbtwo.png",
-    title: "IP 及品牌",
-    title2:
-      "想知道如何将你们的品牌带入 TheSandbox?我们将帮助你将品牌形象融入我们的生态系统.",
+    title: t("contactUS.ipppai"),
+    title2: t("contactUS.xzhidaoruhe"),
   },
   {
     img: proxy?.$ipfsUrl + "contactUS/lbthree.png",
-    title: "独立工作室",
-    title2:
-      "你是一家游戏工作室，想要在我们的体素世界中开发自己的概念?立即联系我们，让我们帮助你创造元宇宙体验",
+    title: t("contactUS.duligongzuo"),
+    title2: t("contactUS.youxigzs"),
   },
-]);
-const twoList = ref([
+]
+const getTwoList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "home/byyhree.png",
     url: "https://x.com/MetaverseKIA",
@@ -53,56 +51,64 @@ const twoList = ref([
     imgurl: proxy?.$ipfsUrl + "home/bttwo.png",
     url: "",
   },
-]);
-const threeList = ref([
+]
+const getThreeList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/cooone.png",
-    t1: "房地产与家具",
+    t1: t("contactUS.ficyjj"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/cootwo.png",
-    t1: "音乐、演唱会与流媒体",
+    t1: t("contactUS.yyueyumeiti"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/coothree.png",
-    t1: "艺术与博物馆",
+    t1: t("contactUS.yishuyubowug"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/coofour.png",
-    t1: "体育运动",
+    t1: t("contactUS.yiyugyundong"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/coonine.png",
-    t1: "时尚服饰",
+    t1: t("contactUS.shisfushi"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/cooeight.png",
-    t1: "赛车",
+    t1: t("contactUS.saiche"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/cooseven.png",
-    t1: "电玩",
+    t1: t("contactUS.dianwan"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/coosix.png",
-    t1: "购物",
+    t1: t("contactUS.ficyjj"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/coofive.png",
-    t1: "社交与约会",
+    t1: t("contactUS.shehuiyuyuehui"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "contactUS/coox.png",
-    t1: "专业互动",
+    t1: t("contactUS.zzhuanyehud"),
   },
-]);
+]
+const oneList = ref(getOneList())
+const twoList = ref(getTwoList())
+const threeList = ref(getThreeList())
+const switchLanguage = () => {
+  oneList.value = getOneList();
+  twoList.value = getTwoList();
+  threeList.value = getThreeList();
+}
 const gourl = async (url: string) => {
   if (url) {
     window.open(url);
   } else {
     await navigator.clipboard.writeText("MetaverseKIA@gmail.com");
     ElMessage({
-      message: "邮箱复制成功！！！",
+      message: t("metaverse.youxiangfuzhicg"),
       type: "success",
     });
   }
@@ -110,7 +116,7 @@ const gourl = async (url: string) => {
 </script>
 
 <template>
-  <Top activeIndex="/" />
+  <Top activeIndex="/"  @switchLanguage="switchLanguage"/>
   <div class="search">
     <div class="video-background" id="nav">
       <div class="searchText" id="nav">
@@ -122,17 +128,15 @@ const gourl = async (url: string) => {
           />
         </div>
         <div class="searchT2">
-          欢迎任何人加入 MetaKina元宇宙品牌、工作室、独立创作者，你们都是
-          ，我们生悉系统重要的一部分。我们知道你们都有不同需求，我们希望能够
-          帮助你们进入元宇宙。
+          {{ t("contactUS.hunyrhrjr") }}
         </div>
       </div>
     </div>
   </div>
-  <div style="height: 800px"></div>
+  <div class="fengefu"></div>
 
   <div class="title">
-    <div class="titleword">成为合作伙伴</div>
+    <div class="titleword">{{ t("contactUS.cweihehb") }}</div>
     <div class="redline"></div>
   </div>
   <div class="carouselBox">
@@ -140,27 +144,31 @@ const gourl = async (url: string) => {
       <div class="el-car-item" v-for="item in oneList">
         <div class="divSrc">
           <img class="img" :src="item.img" />
-          <div class="title66" style="font-size: 32px; margin: 10px 0">
+          <div class="title661">
             {{ item.title }}
           </div>
-          <div class="title66" style="font-size: 26px">
+          <div class="title662">
             {{ item.title2 }}
           </div>
           <div class="us">
-            加入我们
-            <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png" alt="" srcset="" />
+            {{ t("contactUS.jiarwom") }}
+            <img
+              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png"
+              alt=""
+              srcset=""
+            />
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="title" style="padding-bottom: 40px">
-    <div class="titleword">为什么与我们合作？</div>
+  <div class="title why">
+    <div class="titleword">{{ t("contactUS.wsmywomh") }}</div>
     <div class="redline"></div>
   </div>
   <div class="metaKina cooperation">
     <div class="t2">
-      我们有现实世界体验的延申指的技术，将人们在现实世界中的体验扩展到数字或虚拟空间，从而增强或补充现实生活中的感受和活动。
+      {{ t("contactUS.cjshiytu") }}
     </div>
     <div class="icontextBody">
       <div class="icontext" v-for="v in threeList">
@@ -170,13 +178,13 @@ const gourl = async (url: string) => {
     </div>
   </div>
 
-  <div class="title" style="padding-bottom: 40px">
-    <div class="titleword">与我们保持联系</div>
+  <div class="title why">
+    <div class="titleword">{{ t("contactUS.ywmbcll") }}</div>
     <div class="redline"></div>
   </div>
   <div class="metaKina">
-    <div style="font-size: 26px; color: #f9f9f9">
-      将最新新闻、活动和故事直接发送到您的收件
+    <div class="metaKinatext">
+      {{ t("contactUS.jzxxw") }}
     </div>
     <div class="metaKinabody">
       <el-input
@@ -185,12 +193,10 @@ const gourl = async (url: string) => {
         placeholder="电子邮件地址"
         @change="search"
       />
-      <el-button type="danger" class="btn">订阅</el-button>
+      <el-button type="danger" class="btn">{{ t("metaverse.dingyue") }}</el-button>
     </div>
-    <div
-      style="font-size: 24px; color: #f9f9f9; position: relative; left: -210px"
-    >
-      提交信息即表示您同意接收新闻、调查和特别优惠。
+    <div class="tbyhui" >
+      {{ t("contactUS.tjxxjibs") }}
     </div>
     <div class="metaKinaicon">
       <img
@@ -206,6 +212,22 @@ const gourl = async (url: string) => {
 </template>
 
 <style scoped lang="scss">
+.tbyhui {
+  font-size: 24px;
+  color: #f9f9f9;
+  position: relative;
+  // left: -210px;
+}
+.why {
+  padding-bottom: 40px;
+}
+.fengefu {
+  height: 800px;
+}
+.metaKinatext {
+  font-size: 26px;
+  color: #f9f9f9;
+}
 .lbbg {
   /* width: 80%; */
   margin: 0 auto;
@@ -256,8 +278,14 @@ const gourl = async (url: string) => {
           height: 242px;
           transition: transform 0.3s ease-in-out;
         }
-        .title66 {
+        .title661 {
+          font-size: 32px;
+          margin: 10px 0;
           color: #fff;
+        }
+        .title662 {
+          color: #fff;
+          font-size: 26px;
         }
       }
       .divSrc:hover .img {
@@ -301,7 +329,8 @@ const gourl = async (url: string) => {
 .bottom {
   width: 100%;
   height: 382px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/bottombg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/bottombg.png")
+    no-repeat;
   background-size: 100%;
   text-align: center;
   margin: 100px 0;
@@ -471,7 +500,8 @@ const gourl = async (url: string) => {
   z-index: 1;
 }
 .video-background {
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/contactUS/topbg.png") no-repeat;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/contactUS/topbg.png")
+    no-repeat;
   background-size: 100%;
   position: absolute;
   top: 0;

@@ -9,7 +9,7 @@
         />
         <div class="cat-info">
           <div>
-            <div style="font-size: 24px">在推特关注@Metakina</div>
+            <div style="font-size: 24px">{{t("stageAirDrop.tuiteguanzhu")}}</div>
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
         <div class="wallet-info">
           
           <el-button color="#333" class="btn btn-remove" plain
-            >核实</el-button
+            >{{t("stageAirDrop.heshi")}}</el-button
           >
         </div>
       </div>
@@ -30,6 +30,8 @@
 </template>
 <script setup lang="ts">
 import { defineProps} from "vue";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const props = defineProps({
   btnLName: String,
 });

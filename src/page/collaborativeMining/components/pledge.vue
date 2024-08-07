@@ -8,34 +8,33 @@
       <div class="cr">
         <div class="stake-amount">
           <div v-if="isCancel" for="stake" class="isCancel">
-            <text>解除数量</text>
-            <text style="color: #999999;font-size: 18px;">最多可解除200张</text>
+            <text>{{ t("collaborativeMining.jchushul")}}</text>
+            <text class="stake-amounttext">{{t("collaborativeMining.ziduokejiehcu")}}</text>
           </div>
-          <div v-else for="stake">质押数量</div>
+          <div v-else for="stake">{{ t("collaborativeMining.zhiyashul")}}</div>
           <div>
             <el-input
               v-model="input"
               class="elinput"
-              :placeholder="isCancel?'请输入您要解除质押的数量':'请输入您要质押的数量'"
+              :placeholder="isCancel?t('collaborativeMining.qshuru1yaojiehcu'):t('collaborativeMining.qchuru1yaozhiya')"
             />
             <el-button
               color="#333"
-              style="width: 100px; margin: 0 10px"
               class="btn btn-remove"
               >MAX</el-button
             >
-            <el-button type="danger" style="width: 100px" class="btn btn-start"
-              >确认</el-button
+            <el-button type="danger" class="btn btn-start"
+              >{{ t('collaborativeMining.quereng') }}</el-button
             >
           </div>
         </div>
         <div class="output-amount">
           <div>
-            <div for="output">您已产出KIA（枚）</div>
+            <div for="output">{{ t('collaborativeMining.ningyichan') }}</div>
           </div>
           <div>
             <el-input v-model="input" class="elinput" readonly />
-            <el-button type="success" class="btn btn-withdraw">提取</el-button>
+            <el-button type="success" class="btn btn-withdraw">{{ t('collaborativeMining.tiqu') }}</el-button>
           </div>
         </div>
       </div>
@@ -45,6 +44,8 @@
 <script setup lang="ts">
 import Person from "./personal.vue";
 import { ref, defineProps} from "vue";
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 //质押销毁
 const isShow = ref(false);
 const isCancel = ref(false);
@@ -179,14 +180,21 @@ const input = ref("");
 .btn-start {
   background-color: red;
   color: #fff;
+  width: 100px;
 }
 
 .btn-remove {
+  width: 100px; 
+  margin: 0 10px;
   color: #e62a2a;
   border: 1px solid #e62a2a;
   background-color: rgb(24, 25, 32) !important;
 }
 
+.stake-amounttext {
+  color: #999999;
+  font-size: 18px;
+}
 .stake-amount {
   display: flex;
   flex-direction: column;

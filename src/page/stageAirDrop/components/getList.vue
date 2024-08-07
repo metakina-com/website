@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="header-title"style="width: 200px;">阶段</div>
-      <div class="header-title" style="width: 200px;">领取地址</div>
-      <div class="header-title" style="width: 200px;">领取数量</div>
-      <div class="header-title"style="width: 300px;">领取时间</div>
+      <div class="header-title"style="width: 200px;">{{ t("stageAirDrop.jieduan") }}</div>
+      <div class="header-title" style="width: 200px;">{{ t("stageAirDrop.lqudizhi") }}</div>
+      <div class="header-title" style="width: 200px;">{{ t("stageAirDrop.lqushuliang") }}</div>
+      <div class="header-title"style="width: 300px;">{{ t("stageAirDrop.lqushijina") }}</div>
     </div>
     <div v-for="(v, i) in props.listData" :key="i" class="stage">
       <div class="stage-title" style="width: 200px;">{{ v.title }}</div>
@@ -18,6 +18,8 @@
 </template>
 <script setup lang="ts">
 import {  defineProps } from "vue";
+import { useI18n } from "vue-i18n";
+const { t } = useI18n();
 const yasuo = (address: any) => {
   if (address.length <= 10) {
     return address; // 如果地址长度小于或等于10，则直接返回地址

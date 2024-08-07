@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import Top from "../components/topMenu.vue";
 import Bottom from "../components/bottom.vue";
-import { ref, onMounted, onUnmounted, getCurrentInstance  } from "vue";
+import { ref, onMounted, onUnmounted, getCurrentInstance } from "vue";
 import router from "../router";
-import { useI18n } from 'vue-i18n';
+import { useI18n } from "vue-i18n";
 const { t } = useI18n();
-const animatedDiv:any = ref(null);
-const animatedDiv2:any = ref(null);
+const animatedDiv: any = ref(null);
+const animatedDiv2: any = ref(null);
 
 const handleScroll = () => {
   if (animatedDiv.value) {
@@ -35,151 +35,152 @@ onMounted(() => {
 onUnmounted(() => {
   window.removeEventListener("scroll", handleScroll);
 });
-const oneList = ref([
+
+const getOneList = () => [
   {
     imgurl: proxy?.$ipfsUrl + "home/tseven.png",
-    height: "584px",
     color: "#fff",
     arrows: proxy?.$ipfsUrl + "home/bai.png",
-    t1:t("home.jihsu") ,
-    t2:t("home.hangyeshuipkftd"),
+    t1: t("home.jihsu"),
+    t2: t("home.hangyeshuipkftd"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/tf.png",
-    height: "398px",
     arrows: proxy?.$ipfsUrl + "home/hei.png",
-    t1: "热门项目",
-    t2: "探索最受欢迎的项目合集",
+    t1: t("home.remxm"),
+    t2: t("home.shydhj"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/ttive.png",
-    height: "422px",
     arrows: proxy?.$ipfsUrl + "home/lan.png",
-    t1: "创新",
-    t2: "品牌引领未来",
+    t1: t("home.chuangx"),
+    t2: t("home.ppylwl"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/tone.png",
-    height: "422px",
     color: "#fff",
     arrows: proxy?.$ipfsUrl + "home/bai.png",
-    t1: "公链挖矿",
-    t2: "获得高收益",
+    t1: t("home.glwk"),
+    t2: t("home.hdgsy"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/ttwo.png",
-    height: "314px",
     arrows: proxy?.$ipfsUrl + "home/hui.png",
-    t1: "服务",
-    t2: "全球领先品质",
+    t1: t("home.fuw"),
+    t2: t("home.qqlxpz"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/tshree.png",
-    height: "314px",
     arrows: proxy?.$ipfsUrl + "home/shuang.png",
-    t1: "专业",
-    t2: "10年+营销沉淀",
+    t1: t("home.zhuanye"),
+    t2: t("home.yxxd"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/tsix.png",
-    height: "314px",
     color: "#fff",
     arrows: proxy?.$ipfsUrl + "home/qhuang.png",
-    t1: "元宇宙",
-    t2: "探索元宇宙的无限可能",
+    t1: t("home.yyzhou"),
+    t2: t("home.txyyzdkn"),
   },
-]);
-const twoList = ref([
+]
+const getTwoList = () => [
   {
-    imgurl: proxy?.$ipfsUrl + "home/mone.png",
+    imgurl: 'https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVZyz6WZ4mtRxTvmVjx4L8Pak548RTnG7DsUfLsAiHro9',
     background: "none",
     color: "#999",
-    t1: "元话数藏",
-    t2: "数字藏品电商系统，商家快速搭建数字藏品平台的SaaS工具。",
+    t1: t("home.yhsc"),
+    t2: t("home.szcpdsxt"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/mone.png",
-    t1: "基纳钱包",
-    t2: "已进行合法设置，是企业与商家推广和留存用户的有效工具。",
+    t1: t("home.jxqb"),
+    t2: t("home.hfszsqy"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/meight.png",
     background: "none",
     color: "#999",
-    t1: "供应链管理",
-    t2: "将哈希二维码存在防篡改分类账，实现快速、透明、高效的数据验证。",
+    t1: t("home.gxlgl"),
+    t2: t("home.haxiewm"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/msthree.png",
-    t1: "社群与粉丝运营",
-    t2: "用于用户裂变、VIP福利、社群活跃 内容营销与UGC等。",
+    t1: t("home.sqyfsyy"),
+    t2: t("home.hyhylb"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/mtwo.png",
-    t1: "基纳浏览器",
-    t2: "通过数据可视化，为用户提供360°全部交易行为解析。",
+    t1: t("home.jnllq"),
+    t2: t("home.sjksh"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/msix.png",
     color: "#999",
     background: "none",
-    t1: "区块链游戏 / 元宇宙",
-    t2: "符合国家法律法规，十大基本玩法，几十种衍生玩法，与数字藏品结合产生更大效益。",
+    t1: t("home.qklyx"),
+    t2: t("home.fhgjgd"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/mfour.png",
-    t1: "基纳搜索引擎",
-    t2: "为商家提供免费与付费宣传，助力客户商业化与品牌传播。",
+    t1: t("home.jxnssyq"),
+    t2: t("home.wqstgbnfh"),
   },
   {
     imgurl: proxy?.$ipfsUrl + "home/mseven.png",
     color: "#999",
     background: "none",
-    t1: "赋能实体/元宇宙商城",
-    t2: "买藏品送实物，买实物送藏品；实物包括商品、门票、会员卡等。",
+    t1: t("home.yyzsc"),
+    t2: t("home.mcqssw"),
   },
-]);
+]
 
-const threeList = ref([
+const getThreeList = () => [
   {
-    t1: "零gas费",
-    t2: "新一代共识协议提升了交易速度和效率，可实现超低Gas费。现阶段，新用户GAS全免!",
+    t1: t("home.lgassf"),
+    t2: t("home.xydgsxy"),
   },
   {
-    t1: "安全",
-    t2: "基纳链验证节点全部来自国内由发起方和服务商共同组建，受监管部门监督。",
+    t1: t("home.anquna"),
+    t2: t("home.jnlyzjd"),
   },
   {
-    t1: "高并发承载",
-    t2: "通过分布式节点，轻松实现每秒数千笔交易处理。技术迭代升级后，每秒TPS可达20万+。",
+    t1: t("home.gbfcz"),
+    t2: t("home.gbsjd"),
   },
   {
-    t1: "高扩展",
-    t2: "根据企业或商家需求，基于区块链智能合约开发，助力企业Wbe3.0转型",
+    t1: t("home.gkz"),
+    t2: t("home.qyxqjyqk"),
   },
-]);
+]
+const oneList = ref(getOneList())
+const twoList = ref(getTwoList())
+const threeList = ref(getThreeList())
+const switchLanguage = () => {
+  oneList.value = getOneList();
+  twoList.value = getTwoList();
+  threeList.value = getThreeList();
+}
 const goUrl = () => {
   router.push("/metaverse");
 };
-
 </script>
 
 <template>
-  <Top activeIndex="/" />
+  <Top activeIndex="/" @switchLanguage="switchLanguage" />
   <div class="search">
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source :src="proxy?.$ipfsUrl + 'home/bgtop.mp4' " type="video/mp4" />
+        <source :src="proxy?.$ipfsUrl + 'home/bgtop.mp4'" type="video/mp4" />
       </video>
     </div>
     <div class="searchText" id="nav">
-      <div class="searchT1">MetaKina元宇宙</div>
+      <div class="searchT1">{{ t("home.mkyyz") }}</div>
       <div class="searchT2">
-        搭建现实世界与虚拟世界的桥梁，提供一个即时想象和创造的沉浸式虚拟空间，创造任何人都能探索的去中心化社区世界。
+        {{ t("home.djxsysh") }}
       </div>
     </div>
   </div>
-  <div style="height: 1080px"></div>
+  <div class="fengge"></div>
   <div class="saasSystem">
     <div class="sassbody">
       <div
@@ -187,8 +188,7 @@ const goUrl = () => {
         :src="v.imgurl"
         v-for="(v, _) in oneList"
         :style="{
-          backgroundImage: 'url(' + v.imgurl + ')',
-          height: v.height,
+          backgroundImage: 'url(' + v.imgurl + ')'
         }"
       >
         <div
@@ -208,17 +208,24 @@ const goUrl = () => {
       </div>
     </div>
   </div>
-  <div class="title" style="margin-top: -200px">
-    <div class="titleword">Kinachain公链介绍</div>
+  <div class="title tkinjieshao">
+    <div class="titleword">{{ t("home.khgljs") }}</div>
     <div class="redline"></div>
   </div>
   <div class="videoMetaKina" id="nav">
-    <video :poster="proxy?.$ipfsUrl + 'home/videofm.png' " controls id="bg-video2">
-      <source :src="proxy?.$ipfsUrl + 'home/videoMetaKina.mp4' " type="video/mp4" />
+    <video
+      :poster="proxy?.$ipfsUrl + 'home/videofm.png'"
+      controls
+      id="bg-video2"
+    >
+      <source
+        :src="proxy?.$ipfsUrl + 'home/videoMetaKina.mp4'"
+        type="video/mp4"
+      />
     </video>
   </div>
   <div class="title">
-    <div class="titleword">MetaKina技术服务生态</div>
+    <div class="titleword">{{ t("home.mkjsfwst") }}</div>
     <div class="redline"></div>
   </div>
   <div class="metaKina" ref="animatedDiv">
@@ -237,31 +244,37 @@ const goUrl = () => {
     </div>
   </div>
   <div class="title">
-    <div class="titleword">Kinachain公链技术优势</div>
+    <div class="titleword">{{ t("home.khgljsys") }}</div>
     <div class="redline"></div>
   </div>
   <div class="kinachain" ref="animatedDiv2">
     <div class="kinachaiione">
       <div class="kinachaiionet">
-        <div>新一代</div>
-        <div style="color: #e62a2a">共识协议</div>
+        <div>{{ t("home.xyidia") }}</div>
+        <div style="color: #e62a2a">{{ t("home.gxxy") }}</div>
       </div>
       <div class="kinachaiioneb">
-        该共识协议通过“异步”特性克服了恶意节点容错的挑战，即时序挑战。许多形式的拜占庭容错，假设在达成共识时存在消息延迟的最大值，但基纳链新一代共识协议消除了这种假设，允许网络的诚实节点保证公平、安全地就组交易的时间和顺序达成一致。
+        {{ t("home.xyybkfp") }}
       </div>
     </div>
     <div class="kinachainbody animate2" v-for="(v, _) in threeList">
-      <div style="font-size: 36px; margin-bottom: 16px">{{ v.t1 }}</div>
-      <div style="font-size: 28px">{{ v.t2 }}</div>
+      <div class="kinachainbodyt1">{{ v.t1 }}</div>
+      <div class="kinachainbodyt2">{{ v.t2 }}</div>
     </div>
   </div>
   <div class="bottom">
     <div class="bottomt">
-      <div>开启<text style="color: #e62a2a">元宇宙</text></div>
-      <div>探索未知的虚拟世界</div>
+      <div>
+        {{ t("home.kaisiq")
+        }}<text style="color: #e62a2a">{{ t("home.yyzkaiqi") }}</text>
+      </div>
+      <div>{{ t("home.tssjwexwsj") }}</div>
     </div>
     <div @click="goUrl" class="bottomb">
-      开启探索 <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png" />
+      {{ t("home.kaiqits") }}
+      <img
+        src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png"
+      />
     </div>
   </div>
   <Bottom />
@@ -279,8 +292,9 @@ const goUrl = () => {
 }
 .bottom {
   width: 100%;
-  height: 382px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/bottombg.png") no-repeat;
+  height: 482px;
+  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/bottombg.png")
+    no-repeat;
   background-size: 100%;
   text-align: center;
   margin: 100px 0;
@@ -288,10 +302,10 @@ const goUrl = () => {
 }
 .bottomt {
   font-size: 52px;
-  padding: 106px 0 0 106px;
+  padding: 140px 0 0 156px;
 }
 .bottomb {
-  padding: 56px 0 0 106px;
+  padding: 80px 0 0 156px;
   font-size: 32px;
   color: #e62a2a;
   cursor: pointer;
@@ -303,7 +317,7 @@ const goUrl = () => {
   top: 7px;
 }
 .kinachain {
-  padding: 0 10%;
+  padding: 0 16%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -339,7 +353,13 @@ const goUrl = () => {
     opacity: 1;
   }
 }
-
+.kinachainbodyt1 {
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+.kinachainbodyt2 {
+  font-size: 28px;
+}
 .kinachainbody {
   width: 425px;
   height: 268px;
@@ -387,7 +407,7 @@ const goUrl = () => {
 }
 
 .metaKinabody {
-  width: 355px;
+  width: 24%;
   height: 334px;
   background: #181920;
   border-radius: 8%;
@@ -410,6 +430,9 @@ const goUrl = () => {
   width: 50px;
   height: 50px;
   margin-right: 10px;
+}
+.tkinjieshao {
+  margin-top: -200px;
 }
 .metaKinabodybottom {
   margin-top: 32px;
@@ -491,7 +514,30 @@ const goUrl = () => {
 .sassbody {
   column-count: 3;
 }
-
+.fengge {
+  height: 1080px;
+}
+.sassbodyImg:nth-child(1) {
+  height: 584px;
+}
+.sassbodyImg:nth-child(2) {
+  height: 398px;
+}
+.sassbodyImg:nth-child(3) {
+  height: 422px;
+}
+.sassbodyImg:nth-child(4) {
+  height: 422px;
+}
+.sassbodyImg:nth-child(5) {
+  height: 314px;
+}
+.sassbodyImg:nth-child(6) {
+  height: 314px;
+}
+.sassbodyImg:nth-child(7) {
+  height: 314px;
+}
 .sassbodyImg {
   width: 439px;
   break-inside: avoid; /* 避免内容分布在多列 */
@@ -502,7 +548,7 @@ const goUrl = () => {
   background-size: 100%;
 }
 .saasSystem {
-  padding: 0 10%;
+  padding: 0 18%;
   position: relative;
   z-index: 1;
   top: -310px;

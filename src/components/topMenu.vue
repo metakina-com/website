@@ -5,7 +5,7 @@ const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 import router from "../router";
 import { ElMessage } from "element-plus";
-const emit = defineEmits(["tabScroll"]);
+const emit = defineEmits(["tabScroll","switchLanguage"]);
 const props = defineProps({
   activeIndex: String,
 });
@@ -48,16 +48,18 @@ const gourl = (url: string) => {
   window.open(url);
 };
 const languages = ref([
-  { code: "ZH", name: "中文(简体) - ZH", path: "/" ,abb:'中文(简体)'},
   { code: "EN", name: "English - EN", path: "/EN" ,abb:'English'},
   { code: "JA", name: "日本語 - JA", path: "/JA" ,abb:'日本語'},
   { code: "KO", name: "한국어 - KO", path: "/KO" ,abb:'한국어'},
+  { code: "ZH", name: "中文(简体) - ZH", path: "/" ,abb:'中文(简体)'},
 ]);
 const selectlan = ref('中文(简体)')
 const { locale } = useI18n()
-const switchlg = (v: any) => {
+const switchLanguage = (v: any) => {
   locale.value = v.code
   selectlan.value = v.abb
+  emit("switchLanguage");
+
 };
 
 </script>
@@ -80,7 +82,7 @@ const switchlg = (v: any) => {
       @select="handleSelect"
       mode="horizontal"
     >
-      <el-menu-item index="/">{{ $t("top.home") }}</el-menu-item>
+      <el-menu-item index="/">{{ $t("top.homepage") }}</el-menu-item>
       <el-sub-menu index="2">
         <template #title>{{ $t("top.xmuheji") }}</template>
         <el-menu-item index="nav">{{ $t("top.kialiulanqi") }}</el-menu-item>
@@ -142,9 +144,8 @@ const switchlg = (v: any) => {
       <div @click="copy" class="gourl">
         <img :src="proxy?.$ipfsUrl + 'home/bttwo.png'" />
       </div>
-    </div>
-    <button class="wallet-button">{{ $t("top.ljieqianbao") }}</button>
-    <el-dropdown style="width: 140px;">
+      <button class="wallet-button">{{ $t("top.ljieqianbao") }}</button>
+    <el-dropdown  class="dropdown" >
       <span class="el-dropdown-link">
         <div class="language">
           <img
@@ -155,16 +156,21 @@ const switchlg = (v: any) => {
       </span>
       <template #dropdown>
         <el-dropdown-menu>
-          <el-dropdown-item v-for="v in languages" @click=switchlg(v)>{{
+          <el-dropdown-item v-for="v in languages" @click=switchLanguage(v)>{{
             v.name
           }}</el-dropdown-item>
         </el-dropdown-menu>
       </template>
     </el-dropdown>
+    </div>
+   
   </nav>
 </template>
 
 <style scoped lang="scss">
+.dropdown{
+  width: 140px;
+}
 .sj {
   position: absolute;
   top: 0;
@@ -199,7 +205,6 @@ const switchlg = (v: any) => {
   background-color: rgba(0, 0, 0, 0) !important;
   color: #fff;
   border: none !important;
-  width: 820px;
 }
 .el-sub-menu__title:hover {
   background-color: red !important;
@@ -217,7 +222,7 @@ const switchlg = (v: any) => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 10%;
+  padding: 20px 4%;
   background-color: rgba(0, 0, 0, 0.5);
   position: sticky;
   top: 0;
@@ -274,5 +279,6 @@ const switchlg = (v: any) => {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
+  margin: 0 20px;
 }
 </style>

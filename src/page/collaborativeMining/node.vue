@@ -4,11 +4,12 @@ import Bottom from "../../components/bottom.vue";
 import Pledge from "../../page/collaborativeMining/components/pledge.vue";
 import Login from "../../page/collaborativeMining/components/login.vue";
 import { ref, getCurrentInstance } from "vue";
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 
-const activeTab2 = ref("代币");
+const activeTab2 = ref(t("projectCPT.daibi"));
 </script>
 
 <template>
@@ -19,7 +20,7 @@ const activeTab2 = ref("代币");
       <div
         class="tab2 active"
       >
-        节点挖矿
+      {{ t("projectCPT.jdwk") }}
       </div>
     </div>
     <Pledge :imgurl="proxy?.$ipfsUrl + 'ETH.png'" :circle="true" v-for="(_, index) in [ {}]" :key="index"/>
@@ -29,10 +30,10 @@ const activeTab2 = ref("代币");
     
       <div
         class="tab2"
-        :class="{ active: activeTab2 === '代币' }"
-        @click="activeTab2 = '代币'"
+        :class="{ active: activeTab2 === t('projectCPT.daibi') }"
+        @click="activeTab2 = t('projectCPT.daibi')"
       >
-        代币
+      {{ t("projectCPT.daibi") }}
       </div>
       <div
         class="tab2"
@@ -43,7 +44,7 @@ const activeTab2 = ref("代币");
       </div>
     </div>
     <div class="">
-      <div v-if="activeTab2 === '代币'" class="statc">
+      <div v-if="activeTab2 === t('projectCPT.daibi')" class="statc">
         <Pledge :imgurl="proxy?.$ipfsUrl + 'ETH.png'" :circle="true" v-for="(_, index) in [{}, {}, {}, {}, {}]" :key="index"/>
       </div>
       <div v-if="activeTab2 === 'LP'" class="statc">

@@ -2,7 +2,8 @@
 import Top from "../../components/topMenu.vue";
 import Bottom from "../../components/bottom.vue";
 import List from "./components/list.vue";
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 import { ref, onMounted, getCurrentInstance } from "vue";
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
@@ -28,6 +29,12 @@ const items = ref([
   "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
   "0x5b8ACF7E2672C4d7D665A661A574a811224394a27",
 ]);
+const listgz:any = ref([
+      { btnLName: t("stageAirDrop.gz") },
+      { btnLName: t("stageAirDrop.dz") },
+      { btnLName: t("stageAirDrop.zf") },
+      { btnLName: t("stageAirDrop.zf") },
+    ])
 const scrollContainer: any = ref(null);
 onMounted(() => {
   const containerHeight = scrollContainer.value.clientHeight;
@@ -46,38 +53,33 @@ onMounted(() => {
   <Top activeIndex="/task" />
   <div class="explain" style="align-items: center">
     <div class="content">
-      <text class="t1">Metakina福利</text>
-      <text class="t2" style="font-size: 52px">领取规则</text>
+      <text class=" t3">{{ t("stageAirDrop.makfuli") }}</text>
+      <text class="  lquguiz">{{ t("stageAirDrop.lquguiz") }}</text>
     </div>
-    <div style="font-size: 18px; width: 50%">
-      这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明这里是Metkina福利领取规则详情说明
+    <div class="metkinfuli">
+      {{ t("stageAirDrop.metkinfuli") }}
     </div>
   </div>
   <List
-    v-for="(v, i) in [
-      { btnLName: '关注' },
-      { btnLName: '点赞' },
-      { btnLName: '转发' },
-      { btnLName: '转发' },
-    ]"
+    v-for="(v, i) in listgz"
     :key="i"
     :btnLName="v.btnLName"
   />
-  <el-button type="success" class="btn btn-withdraw">领取福利</el-button>
+  <el-button type="success" class="btn btn-withdraw">{{ t("stageAirDrop.lqufuli") }}</el-button>
   <div class="raffle">
     <div class="lf">
-      <text class="t2">幸运</text>
-      <text class="t2" style="color: #fff">抽奖</text>
-      <div style="font-size: 18px; width: 59%">
-        任务时间到期，将随机抽取关注推特并领取福利的10位用户得到空投
+      <text class="t2">{{ t("stageAirDrop.xyun") }}</text>
+      <text class="t2" style="color: #fff">{{ t("stageAirDrop.choujing") }}</text>
+      <div class="jlirelue" >
+        {{ t("stageAirDrop.rwushijiandaoqi") }}
       </div>
-      <div style="font-size: 18px; margin-top: 40px">
-        开奖倒计时：51天15小时23分55秒
+      <div class="djs">
+        {{ t("stageAirDrop.kjdjs") }}
       </div>
       <img :src="proxy?.$ipfsUrl + 'fuli.png'" alt="Image" class="fuliimage" />
     </div>
     <div class="rg">
-      <div>上期中奖地址</div>
+      <div>{{ t("stageAirDrop.zjdizhi") }}</div>
       <div class="scroll-container" ref="scrollContainer">
         <div class="scroll-list">
           <div v-for="item in items" :key="item">{{ item }}</div>
@@ -87,10 +89,10 @@ onMounted(() => {
   </div>
   <div class="explain bottomimg">
     <div class="content">
-      <div>进入Kinaswap交易获取</div>
-      <div>更多<text class="t2" style="font-size: 52px">空投福利</text></div>
+      <div>{{ t("stageAirDrop.jyihuoqu") }}</div>
+      <div>{{ t("stageAirDrop.more") }}<text class="t2 dirfuli" >{{ t("stageAirDrop.ktoufuli") }}</text></div>
       <div class="us t2">
-        获取福利 <img :src="proxy?.$ipfsUrl + 'home/hong.png'" />
+        {{ t("stageAirDrop.huoqufuli") }} <img :src="proxy?.$ipfsUrl + 'home/hong.png'" />
       </div>
     </div>
   </div>
@@ -98,6 +100,24 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.dirfuli{
+  font-size: 52px;
+}
+.djs{
+  font-size: 18px; 
+  margin-top: 40px;
+}
+.jlirelue{
+  font-size: 18px;
+  margin-top: 40px;
+}
+.lquguiz{
+  font-size: 52px;
+}
+.metkinfuli{
+  font-size: 18px; 
+  width: 50%;
+}
 .us {
   font-size: 26px;
   margin-top: 24px;
@@ -211,9 +231,14 @@ onMounted(() => {
   text-align: right;
 }
 .t1 {
+
+
 }
 .t2 {
   font-size: 32px;
+  color: #e62a2a;
+}
+.t3 {
   color: #e62a2a;
 }
 </style>

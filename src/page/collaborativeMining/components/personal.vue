@@ -1,6 +1,6 @@
 <template>
   <div class="cards2" >
-    <div class="c-top" style="height: 228px;">
+    <div class="c-top" >
       <div class="card-header">
         <img
           v-if="circle"
@@ -16,9 +16,9 @@
         />
         <div class="cat-info">
           <div>
-            <div style="font-size: 24px">自由猫#6706</div>
-            <div style="font-size: 18px">
-              这里展示自由猫#6706的描述，这里展示自由猫#6706的描述，这里展示自由猫#6706的描述
+            <div class="cat-info1"  >{{t("collaborativeMining.ziyoumao")}}</div>
+            <div class="cat-info2" >
+              {{t("collaborativeMining.zanshineir")}}
             </div>
           </div>
           <div class="social-icons">
@@ -39,20 +39,20 @@
       <div class="cat-infor">
         <div class="wallet-info">
           <div class="wallet-amount">
-            <div style="font-size: 36px">200</div>
-            <div style="font-size: 18px; color: #999999">
-              钱包可用数量（张）
+            <div class="wallet-amount1">200</div>
+            <div class="wallet-amount2">
+              {{t("collaborativeMining.qbkyshul")}}
             </div>
           </div>
-          <el-button type="danger" class="btn btn-start" @click="begin">开始质押</el-button>
+          <el-button type="danger" class="btn btn-start" @click="begin">{{t("collaborativeMining.kszy")}}</el-button>
         </div>
         <div class="wallet-info">
           <div class="wallet-rate">
-            <div style="font-size: 36px">10.00%</div>
-            <div style="font-size: 18px; color: #999999">收益率</div>
+            <div class="wallet-rate1">10.00%</div>
+            <div class="wallet-rate2">{{t("collaborativeMining.sylv")}}</div>
           </div>
           <el-button color="#333" class="btn btn-remove" plain  @click="cancel"
-            >解除质押</el-button
+            >{{t("collaborativeMining.jiechuzhiya")}}</el-button
           >
         </div>
       </div>
@@ -62,7 +62,8 @@
 <script setup lang="ts">
 import { defineProps, defineEmits} from "vue";
 const emit = defineEmits(['begin','cancel']);
-
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
 const props = defineProps({
     imgurl: String,
     circle: Boolean
@@ -75,12 +76,33 @@ const cancel = () => {
 }
 </script>
 <style scoped>
+.cat-info1{
+  font-size: 24px;
+}
+.cat-info2{
+  font-size: 18px;
+}
+.wallet-amount1{
+  font-size: 36px;
+}
+.wallet-amount2{
+  font-size: 18px;
+  color: #999999;
+}
+.wallet-rate1{
+  font-size: 36px;
+}
+.wallet-rate2{
+  font-size: 18px;
+  color: #999999;
+}
 .cards2 {
   padding: 20px;
 
 }
 .c-top {
   display: flex;
+  height: 228px;
 }
 .card-header {
   display: flex;

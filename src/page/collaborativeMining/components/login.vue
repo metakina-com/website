@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
-const djs: any = ref("获取验证码");
+import { useI18n } from 'vue-i18n';
+const { t } = useI18n();
+const djs: any = ref(t("collaborativeMining.getcode"));
 const getYzm = () => {
   djs.value = 60;
   const interval = setInterval(() => {
     djs.value--;
 
     if (djs.value <= 0) {
-      djs.value = "获取验证码";
+      djs.value = t("collaborativeMining.getcode");
       clearInterval(interval);
     }
   }, 1000);
@@ -15,54 +17,67 @@ const getYzm = () => {
 </script>
 
 <template>
-    <div class="down">挖矿APP下载</div>
-    <div class="logincontainer">
+  <div class="down">{{t("collaborativeMining.dpwnlapp")}}</div>
+  <div class="logincontainer">
     <div class="illustration">
-      <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png" alt="Mining Illustration" />
+      <img
+        src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png"
+        alt="Mining Illustration"
+      />
     </div>
     <div class="login-form">
-      <h2 style="font-size: 32px">开机挖币</h2>
+      <h2 class="loginwakuang">{{t("collaborativeMining.begin")}}</h2>
       <div class="yxyzm">
-        <input type="email" id="email" placeholder="请输入邮箱" />
+        <input type="email" id="email" :placeholder="t('collaborativeMining.qshryx')" />
       </div>
       <div class="yxyzm">
-        <input type="password" id="password" placeholder="请输入验证码" />
+        <input type="password" id="password" :placeholder="t('collaborativeMining.qsryzm')" />
 
         <div class="yzm" @click="getYzm">{{ djs }}</div>
       </div>
 
-      <div style="display: flex; align-items: center; padding: 30px 0">
+      <div class="yhxy">
         <input type="checkbox" id="agree" />
         <div for="agree">
-          我已阅读并同意 <a href="#">《用户协议》</a> 和
-          <a href="#">《隐私政策》</a>
+          {{t("collaborativeMining.wytyxx")}} <a href="#">{{t("collaborativeMining.yhxy")}}</a> {{t("collaborativeMining.and")}}
+          <a href="#">{{t("collaborativeMining.zcxy")}}</a>
         </div>
       </div>
-      <button>登 录</button>
-      <p style="width: 400px; text-align: center">
-        没有有效账号？<a href="#">立即注册</a>
-      </p>
+      <button>{{t("collaborativeMining.lgin")}}</button>
+      <p class="myzh">{{t("collaborativeMining.myzh")}}<a href="#">{{t("collaborativeMining.ljzc")}}</a></p>
     </div>
   </div>
 </template>
 
 <style scoped>
+.yhxy {
+  display: flex;
+  align-items: center;
+  padding: 30px 0;
+}
+.myzh {
+  width: 400px;
+  text-align: center;
+}
+.loginwakuang {
+  font-size: 32px;
+}
 .yzm {
   white-space: nowrap;
   color: red;
   cursor: pointer;
 }
-.down{
-    text-align: right;
-    position: relative;
-    top: 42px;
-    right: 181px;
-    cursor: pointer;
+.down {
+  text-align: right;
+  position: relative;
+  top: 42px;
+  right: 181px;
+  cursor: pointer;
 }
 .yxyzm {
   width: 400px;
   display: flex;
-  border-bottom: 1px solid #333;;
+  border-bottom: 1px solid #333;
   margin-top: 30px;
   align-items: center;
 }
@@ -72,7 +87,7 @@ const getYzm = () => {
   justify-content: space-between;
   padding: 50px 0;
   width: 100%;
-  background-color: rgb(24, 25, 32);;
+  background-color: rgb(24, 25, 32);
 }
 
 .illustration {
@@ -108,7 +123,7 @@ const getYzm = () => {
   padding: 10px;
   margin-bottom: 20px;
   border-radius: 4px;
-  background-color: rgb(24, 25, 32);;
+  background-color: rgb(24, 25, 32);
   color: white;
   font-size: 18px;
   border: none;
