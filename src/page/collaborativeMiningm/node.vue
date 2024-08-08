@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import Top from "../../components/topMenu.vue";
-import Bottom from "../../components/bottom.vue";
+import Top from "../../components/topMenum.vue";
+import Bottom from "../../components/bottomm.vue";
 import Pledge from "./components/pledge.vue";
 import Login from "./components/login.vue";
 import { ref, getCurrentInstance } from "vue";
