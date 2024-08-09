@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {onMounted, defineProps, defineEmits, getCurrentInstance, ref, onUnmounted} from "vue";
+import {onMounted, defineProps, defineEmits, getCurrentInstance, ref} from "vue";
 import { useI18n } from 'vue-i18n'
 const instance = getCurrentInstance();
 const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
@@ -83,30 +83,30 @@ const switchLanguage = (v: any) => {
 
 
 
-   // 定义一个方法来更新屏幕宽度
-const updateScreenWidth = (event:any) => {
-  if (event.type === "resize") {
-    if (window.innerWidth > 601) {
-      //pc
-      window.location.reload();
-      console.log("pc");
-    } else {
-      //h5
-      console.log("h5");
-      window.location.reload();
-    }
-  }
-};
+//    // 定义一个方法来更新屏幕宽度
+// const updateScreenWidth = (event:any) => {
+//   if (event.type === "resize") {
+//     if (window.innerWidth > 601) {
+//       //pc
+//       window.location.reload();
+//       console.log("pc");
+//     } else {
+//       //h5
+//       console.log("h5");
+//       window.location.reload();
+//     }
+//   }
+// };
 
-    // 在组件挂载后添加窗口resize事件监听器
-    onMounted(() => {
-      window.addEventListener('resize', updateScreenWidth);
-    });
+    // // 在组件挂载后添加窗口resize事件监听器
+    // onMounted(() => {
+    //   window.addEventListener('resize', updateScreenWidth);
+    // });
 
-    // 在组件卸载前移除窗口resize事件监听器
-    onUnmounted(() => {
-      window.removeEventListener('resize', updateScreenWidth);
-    });
+    // // 在组件卸载前移除窗口resize事件监听器
+    // onUnmounted(() => {
+    //   window.removeEventListener('resize', updateScreenWidth);
+    // });
 
 </script>
 
