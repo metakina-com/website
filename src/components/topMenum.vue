@@ -57,7 +57,7 @@ const languages = ref([
   { code: "KO", name: "한국어 - KO", path: "/KO", abb: "한국어" },
   { code: "ZH", name: "中文(简体)", path: "/", abb: "中文(简体)" },
 ]);
-const { locale } = useI18n()
+const { locale } = useI18n();
 let localeZH;
 switch (locale.value) {
   case "ZH":
@@ -75,7 +75,7 @@ switch (locale.value) {
   default:
     localeZH = "English";
 }
-const selectlan = ref(localeZH)
+const selectlan = ref(localeZH);
 const switchLanguage = (v: any) => {
   locale.value = v.code;
   selectlan.value = v.abb;
@@ -93,28 +93,29 @@ const copy = async () => {
   });
 };
 
+// 定义一个方法来更新屏幕宽度
+const updateScreenWidth = (event:any) => {
+  if (event.type === "resize") {
+    if (window.innerWidth > 601) {
+      //pc
+      window.location.reload();
+      console.log("pc");
+    } else {
+      //h5
+      console.log("h5");
+      window.location.reload();
+    }
+  }
+};
+// 在组件挂载后添加窗口resize事件监听器
+onMounted(() => {
+  window.addEventListener("resize", updateScreenWidth);
+});
 
- // 定义一个方法来更新屏幕宽度
- const updateScreenWidth = () => {
-      if(window.innerWidth > 601){  //pc
-        window.location.reload();
-        console.log('pc');
-        
-      }else{ //h5
-        console.log('h5');
-        window.location.reload();
-      }
-    };
-
-    // 在组件挂载后添加窗口resize事件监听器
-    onMounted(() => {
-      window.addEventListener('resize', updateScreenWidth);
-    });
-
-    // 在组件卸载前移除窗口resize事件监听器
-    onUnmounted(() => {
-      window.removeEventListener('resize', updateScreenWidth);
-    });
+// 在组件卸载前移除窗口resize事件监听器
+onUnmounted(() => {
+  window.removeEventListener("resize", updateScreenWidth);
+});
 </script>
 
 <template>
@@ -179,8 +180,8 @@ const copy = async () => {
         <!-- <el-menu-item index="/">合作伙伴</el-menu-item> -->
       </el-sub-menu>
     </el-menu>
-<div class="drawerIcon social-icons">
-    <div @click="gourl('https://x.com/MetaverseKIA')" class="gourl">
+    <div class="drawerIcon social-icons">
+      <div @click="gourl('https://x.com/MetaverseKIA')" class="gourl">
         <img :src="proxy?.$ipfsUrl + 'home/byyhree.png'" />
       </div>
       <div @click="gourl('https://discord.gg/HQxkyZM6kw')" class="gourl">
@@ -241,10 +242,10 @@ const copy = async () => {
 .dropdown {
   // width: 140px;
 }
-.drawerIcon{
+.drawerIcon {
   justify-content: space-between;
-      position: absolute;
-    bottom: 30px;
+  position: absolute;
+  bottom: 30px;
 }
 .sj {
   position: absolute;

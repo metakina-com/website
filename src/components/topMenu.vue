@@ -83,19 +83,20 @@ const switchLanguage = (v: any) => {
 
 
 
-    // 定义一个方法来更新屏幕宽度
-    const updateScreenWidth = () => {
-      console.log('h5');
-
-      if(window.innerWidth > 601){  //pc
-        window.location.reload();
-        console.log('pc');
-        
-      }else{ //h5
-        console.log('h5');
-        window.location.reload();
-      }
-    };
+   // 定义一个方法来更新屏幕宽度
+const updateScreenWidth = (event:any) => {
+  if (event.type === "resize") {
+    if (window.innerWidth > 601) {
+      //pc
+      window.location.reload();
+      console.log("pc");
+    } else {
+      //h5
+      console.log("h5");
+      window.location.reload();
+    }
+  }
+};
 
     // 在组件挂载后添加窗口resize事件监听器
     onMounted(() => {
