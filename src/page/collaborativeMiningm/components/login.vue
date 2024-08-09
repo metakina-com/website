@@ -17,14 +17,14 @@ const getYzm = () => {
 </script>
 
 <template>
-  <div class="down">{{t("collaborativeMining.dpwnlapp")}}</div>
   <div class="logincontainer">
-    <div class="illustration">
+    <div class="down">{{t("collaborativeMining.dpwnlapp")}}</div>
+    <!-- <div class="illustration">
       <img
         src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png"
         alt="Mining Illustration"
       />
-    </div>
+    </div> -->
     <div class="login-form">
       <h2 class="loginwakuang">{{t("collaborativeMining.begin")}}</h2>
       <div class="yxyzm">
@@ -56,7 +56,6 @@ const getYzm = () => {
   padding: 30px 0;
 }
 .myzh {
-  width: 400px;
   text-align: center;
 }
 .loginwakuang {
@@ -69,13 +68,13 @@ const getYzm = () => {
 }
 .down {
   text-align: right;
-  position: relative;
-  top: 42px;
-  right: 181px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
 }
 .yxyzm {
-  width: 400px;
+  width: 100%;
   display: flex;
   border-bottom: 1px solid #333;
   margin-top: 30px;
@@ -86,6 +85,7 @@ const getYzm = () => {
   align-items: center;
   justify-content: space-between;
   padding: 50px 0;
+  position: relative;
   width: 100%;
   background-color: rgb(24, 25, 32);
 }
@@ -102,8 +102,9 @@ const getYzm = () => {
 }
 
 .login-form {
-  width: 50%;
-  padding: 20px;
+  width: 80%;
+  /* padding: 20px; */
+margin: 0 auto;
 }
 
 .login-form h2 {
@@ -138,7 +139,7 @@ const getYzm = () => {
 }
 
 .login-form button {
-  width: 400px;
+  width: 100%;
   padding: 15px;
   background-color: #f04e4e;
   border: none;

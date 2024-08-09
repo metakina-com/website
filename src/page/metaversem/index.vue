@@ -83,35 +83,35 @@ const gettwoList = () => [
   },
 ]
 
-const carouselData: any = ref([]);
+// const carouselData: any = ref([]);
 const oneList = ref(getoneList())
 const twoList = ref(gettwoList())
 const switchLanguage = () => {
   oneList.value = getoneList();
   twoList.value = gettwoList();
-  byEvents();
+  // byEvents();
 }
 onMounted(() => {
-  byEvents();
+  // byEvents();
 });
 
-const byEvents = () => {
-  let newDataList = [];
-  let current = 0;
-  for (let i = 0; i < oneList.value.length; i++) {
-    const item = oneList.value[i];
-    if (i % 3 !== 0 || i === 0) {
-      if (!newDataList[current]) {
-        newDataList[current] = [];
-      }
-      newDataList[current].push(item);
-    } else {
-      current++;
-      newDataList.push([item]);
-    }
-  }
-  carouselData.value = newDataList;
-}
+// const byEvents = () => {
+//   let newDataList = [];
+//   let current = 0;
+//   for (let i = 0; i < oneList.value.length; i++) {
+//     const item = oneList.value[i];
+//     if (i % 3 !== 0 || i === 0) {
+//       if (!newDataList[current]) {
+//         newDataList[current] = [];
+//       }
+//       newDataList[current].push(item);
+//     } else {
+//       current++;
+//       newDataList.push([item]);
+//     }
+//   }
+//   carouselData.value = newDataList;
+// }
 const gourl = async (url: string) => {
   if (url) {
     window.open(url);
@@ -159,14 +159,14 @@ const gourl = async (url: string) => {
     <div class="titleword">{{t("metaverse.yyzhoushengt")}}</div>
     <div class="redline"></div>
   </div>
-  <div class="carouselBox">
+  <!-- <div class="carouselBox">
     <el-carousel class="carousel">
       <el-carousel-item
         class="el-car-item"
         v-for="item in carouselData"
         :key="item[0].img"
       >
-        <div v-for="imgItem in item" :key="imgItem.img" class="divSrc">
+        <div v-for="imgItem in oneList" :key="imgItem.img" class="divSrc">
           <img class="img" :src="imgItem.img" />
           <div class="title661">{{ imgItem.title }}</div>
           <div class="title662">
@@ -175,7 +175,23 @@ const gourl = async (url: string) => {
         </div>
       </el-carousel-item>
     </el-carousel>
+  </div> -->
+  <div class="carouselBox">
+    <el-carousel class="carousel" trigger="click"   direction="vertical"
+    >
+      <el-carousel-item v-for="item in oneList" class="el-car-item" :key="item">
+        <div class="divSrc">
+          <img class="img" :src="item.img" />
+          <div class="title661">{{ item.title }}</div>
+          <div class="title662">
+            {{ item.title2 }}
+          </div>
+        </div>
+     
+      </el-carousel-item>
+    </el-carousel>
   </div>
+
   <div class="title ywombcll">
     <div class="titleword">{{t("metaverse.yuwombaochilx")}}</div>
     <div class="redline"></div>
@@ -207,56 +223,51 @@ const gourl = async (url: string) => {
 
 <style scoped lang="scss">
 .tbyh {
-  font-size: 24px;
+  font-size: 20px;
   color: #f9f9f9;
   position: relative;
   // left: -210px;
 }
 .fsndyj {
-  font-size: 26px;
+  font-size: 20px;
   color: #f9f9f9;
 }
 .ywombcll {
   padding-bottom: 40px;
 }
 .zhanweifu {
-  height: 1080px;
+  height: 600px;
 }
 .lbbg {
-  /* width: 80%; */
   margin: 0 auto;
 }
 
 .carouselBox {
   margin: 0 auto;
-  // width: 90%;
   .el-carousel__item {
-    left: 130px !important;
   }
 
   .carousel {
     width: 100%;
-    height: 520px;
+    height: 320px;
     .el-car-item {
       width: 100%;
-      height: 420px;
-      width: 89%;
+      // height: 420px;
+      // width: 89%;
       display: flex;
       justify-content: center;
       .divSrc {
-        width: 520px;
-        height: 520px;
-        margin-right: 46px;
+        width: 90%;
+        text-align: center;
         .img {
-          width: 520px;
-          height: 242px;
+          width: 90%;
         }
         .title661 {
           color: #fff;
-          font-size: 36px;
+          font-size: 26px;
         }
         .title662 {
-          font-size: 28px;
+          font-size: 18px;
           color: #fff;
         }
       }
@@ -269,13 +280,13 @@ const gourl = async (url: string) => {
     .img {
       width: 284px;
       height: 184px;
-      margin-right: 20px;
+      // margin-right: 20px;
       cursor: pointer;
     }
   }
 }
 .metaKinaicon {
-  margin: 80px 0 200px 0;
+  margin: 50px 0 50px 0;
 }
 .metaKinaicon img {
   width: 40px;
@@ -285,15 +296,15 @@ const gourl = async (url: string) => {
 }
 .btn {
   border: none;
-  width: 133px;
-  height: 56px;
+  width: 80px;
+  height: 45px;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   text-align: center;
   display: inline-block;
   background-color: #e62a2a !important;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .bottom {
   width: 100%;
@@ -325,7 +336,7 @@ const gourl = async (url: string) => {
   top: 7px;
 }
 .kinachain {
-  padding: 180px 10% 0;
+  padding: 40px 5% 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -334,7 +345,7 @@ const gourl = async (url: string) => {
   display: flex;
   flex-direction: column;
   width: 1200px;
-  height: 268px;
+  // height: 268px;
   margin-bottom: 24px;
 }
 .kinachainbody {
@@ -348,15 +359,16 @@ const gourl = async (url: string) => {
   margin-bottom: 24px;
 }
 .kinachaiioneb {
-  font-size: 28px;
+  font-size: 24px;
 }
 .kinachaiionet {
-  font-size: 46px;
+  font-size: 28px;
   display: flex;
+  white-space: nowrap;
   margin-bottom: 27px;
 }
 .metaKina {
-  padding: 0 10%;
+  padding: 0 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -366,13 +378,14 @@ const gourl = async (url: string) => {
 .metaKinabody {
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .searchInput {
-  width: 847px;
-  height: 56px;
-  font-size: 26px;
+  width: 100%;
+  height: 45px;
+  font-size: 20px;
 }
 .metaKinabodytop {
   display: flex;
@@ -404,7 +417,7 @@ const gourl = async (url: string) => {
   top: -14px;
 }
 .titleword {
-  font-size: 40px;
+  font-size: 32px;
   position: relative;
   z-index: 999;
 }
@@ -476,22 +489,22 @@ const gourl = async (url: string) => {
 
 .search {
   width: 100%;
-  height: 1080px;
+  height: 700px;
   position: absolute;
   top: 0;
   z-index: 1;
 }
 .searchText {
   text-align: center;
-  width: 40%;
+  width: 90%;
   margin: 0 auto;
-  margin-top: 15%;
+  margin-top: 40%;
 }
 .searchT1 {
-  font-size: 80px;
+  font-size: 40px;
 }
 .searchT2 {
-  font-size: 26px;
+  font-size: 20px;
   margin-bottom: 15px;
 }
 </style>

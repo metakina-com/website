@@ -2,9 +2,9 @@
   <div class="cards">
     <person :imgurl="props.imgurl" :circle="circle" @begin="begin" @cancel="cancel"/>
     <div class="card-content" v-show="isShow">
-      <div class="imgricon">
+      <!-- <div class="imgricon">
         <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png" class="icon2" alt="wakuang" />
-      </div>
+      </div> -->
       <div class="cr">
         <div class="stake-amount">
           <div v-if="isCancel" for="stake" class="isCancel">
@@ -12,7 +12,8 @@
             <text class="stake-amounttext">{{t("collaborativeMining.ziduokejiehcu")}}</text>
           </div>
           <div v-else for="stake">{{ t("collaborativeMining.zhiyashul")}}</div>
-          <div>
+          <div style="display: flex;
+    flex-wrap: nowrap;">
             <el-input
               v-model="input"
               class="elinput"
@@ -73,11 +74,11 @@ const input = ref("");
 </script>
 <style scoped>
 .cards {
-  padding: 20px;
+  padding: 10px;
   margin-top: 20px;
   background-color: rgb(24, 25, 32);
   border-radius: 16px;
-  width: 80%;
+  width: 90%;
   margin: 20px auto;
 }
 .c-top {
@@ -85,11 +86,11 @@ const input = ref("");
 }
 .card-header {
   display: flex;
-  margin: 20px;
-  border-right: 1px solid #333;
+  /* margin: 20px; */
+  /* border-right: 1px solid #333; */
   color: #ffffff;
   padding-right: 25px;
-  width: 60%;
+  /* width: 80%; */
 }
 
 .cat-image {
@@ -112,7 +113,7 @@ const input = ref("");
   margin: 0;
 }
 .isCancel{
-  width: 420px;
+  /* width: 420px; */
     display: flex;
     justify-content: space-between;
 }
@@ -128,12 +129,12 @@ const input = ref("");
 
 .icon {
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
 }
 
 .card-content {
-  padding: 20px;
+  padding: 10px;
   display: flex;
   align-items: center;
 }
@@ -154,14 +155,14 @@ const input = ref("");
   text-align: center;
 }
 .elinput {
-  width: 420px;
+  width: 50%;
   height: 40px;
   background: #434343 !important;
   border-radius: 8px;
 }
 .btn {
   border: none;
-  width: 180px;
+  width: 80px;
   height: 40px;
   border-radius: 5px;
   cursor: pointer;
@@ -180,11 +181,11 @@ const input = ref("");
 .btn-start {
   background-color: red;
   color: #fff;
-  width: 100px;
+  width: 80px;
 }
 
 .btn-remove {
-  width: 100px; 
+  width: 80px; 
   margin: 0 10px;
   color: #e62a2a;
   border: 1px solid #e62a2a;
@@ -239,6 +240,6 @@ const input = ref("");
 .btn-withdraw {
   background-color: #46a362;
   color: #fff;
-  margin-left: 10px;
+  margin-left: 10px;  
 }
 </style>

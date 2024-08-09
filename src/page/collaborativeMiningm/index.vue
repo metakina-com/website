@@ -47,7 +47,7 @@ source2.value = 45000;
           <div class="number">
             <el-statistic
               :value-style="{
-                fontSize: '60px',
+                fontSize: '40px',
                 color: '#fff',
               }"
               :value="outputValue"
@@ -60,7 +60,7 @@ source2.value = 45000;
             <el-statistic
               class="ekstatice"
               :value-style="{
-                fontSize: '60px',
+                fontSize: '40px',
                 color: '#fff',
               }"
               :value="outputValue2"
@@ -74,7 +74,7 @@ source2.value = 45000;
           <div class="number">
             <el-statistic
               :value-style="{
-                fontSize: '60px',
+                fontSize: '40px',
                 color: '#fff',
               }"
               :value="outputValue"
@@ -87,7 +87,7 @@ source2.value = 45000;
             <el-statistic
               class="ekstatice"
               :value-style="{
-                fontSize: '60px',
+                fontSize: '40px',
                 color: '#fff',
               }"
               :value="outputValue2"
@@ -190,8 +190,9 @@ source2.value = 45000;
   margin-top: 20px;
 }
 .content-s {
-  width: 532px;
-  height: 237px;
+  width: 80%;
+  /* height: 237px; */
+  line-height: 140px;
   background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/csimgbg.png")
     no-repeat;
   background-size: contain;
@@ -199,6 +200,7 @@ source2.value = 45000;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 .contentc {
   background-color: rgb(24, 25, 32);
@@ -207,7 +209,7 @@ source2.value = 45000;
 }
 .stat {
   text-align: center;
-  display: flex;
+  /* display: flex; */
   width: 80%;
   justify-content: space-around;
 }
@@ -223,6 +225,8 @@ source2.value = 45000;
 .description {
   font-size: 24px;
   color: #999;
+  white-space: nowrap;
+
 }
 .Person:hover {
   background-color: #434343;

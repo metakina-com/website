@@ -77,51 +77,51 @@ const cancel = () => {
 </script>
 <style scoped>
 .cat-info1{
-  font-size: 24px;
+  font-size: 20px;
 }
 .cat-info2{
-  font-size: 18px;
+  font-size: 16px;
 }
 .wallet-amount1{
-  font-size: 36px;
+  font-size: 28px;
 }
 .wallet-amount2{
   font-size: 18px;
   color: #999999;
 }
 .wallet-rate1{
-  font-size: 36px;
+  font-size: 28px;
 }
 .wallet-rate2{
   font-size: 18px;
   color: #999999;
 }
 .cards2 {
-  padding: 20px;
+  /* padding: 20px; */
 
 }
 .c-top {
-  display: flex;
-  height: 228px;
+  /* display: flex; */
+  /* height: 228px; */
 }
 .card-header {
   display: flex;
-  margin: 20px;
-  border-right: 1px solid #333;
+  /* margin: 20px; */
+  /* border-right: 1px solid #333; */
   color: #ffffff;
-  padding-right: 25px;
-  width: 60%;
+  /* padding-right: 25px; */
+  /* width: 60%; */
 }
 
 .cat-image {
-  width: 140px;
-  height: 187px;
+  width: 120px;
+  height: 157px;
   margin-right: 20px;
   border-radius: 20px;
 }
 .cat-image-circle {
-  width: 140px;
-  height: 140px;
+  width: 60px;
+  height: 60px;
   margin-right: 20px;
 }
 .cat-info {
@@ -133,6 +133,7 @@ const cancel = () => {
   display: flex;
   flex: 1;
   justify-content: space-evenly;
+  margin-top: 20px;
 }
 .cat-info h2 {
   margin: 0;
@@ -150,8 +151,8 @@ const cancel = () => {
 
 .icon {
   cursor: pointer;
-  width: 40px;
-  height: 40px;
+  width: 30px;
+  height: 30px;
 }
 
 .card-content {
@@ -176,7 +177,7 @@ const cancel = () => {
   text-align: center;
 }
 .elinput {
-  width: 420px;
+  width: 55%;
   height: 40px;
   background: #434343 !important;
   border-radius: 8px;

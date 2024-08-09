@@ -1,5 +1,5 @@
 <template>
-  <div class="cards w-80c" >
+  <div class="cards " >
     <div class="c-top" >
       <div class="card-header">
         <img
@@ -9,7 +9,7 @@
         />
         <div class="cat-info">
           <div>
-            <div style="font-size: 24px">{{t("stageAirDrop.tuiteguanzhu")}}</div>
+            <div class="cat-infot" >{{t("stageAirDrop.tuiteguanzhu")}}</div>
           </div>
         </div>
       </div>
@@ -45,6 +45,9 @@ margin-bottom: 20px;
 .c-top {
   display: flex;
 }
+.cat-infot{
+  font-size: 18px;
+}
 .card-header {
   display: flex;
   margin: 20px;
@@ -55,8 +58,8 @@ margin-bottom: 20px;
 }
 
 .cat-image {
-  width: 56px;
-  height: 56px;
+  width: 38px;
+  height: 38px;
   margin-right: 20px;
   border-radius: 20px;
 }
@@ -118,13 +121,13 @@ margin-bottom: 20px;
 }
 .btn {
   border: none;
-  width: 120px;
-  height: 40px;
-  border-radius: 5px;
+  width: 80px;
+  height: 35px;
+  border-radius: 4px;
   cursor: pointer;
   text-align: center;
   display: inline-block;
-  margin-right: 30px;
+  margin-right: 20px;
 }
 
 .cr {

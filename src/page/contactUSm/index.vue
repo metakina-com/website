@@ -213,7 +213,7 @@ const gourl = async (url: string) => {
 
 <style scoped lang="scss">
 .tbyhui {
-  font-size: 24px;
+  font-size: 20px;
   color: #f9f9f9;
   position: relative;
   // left: -210px;
@@ -222,10 +222,10 @@ const gourl = async (url: string) => {
   padding-bottom: 40px;
 }
 .fengefu {
-  height: 800px;
+  height: 300px;
 }
 .metaKinatext {
-  font-size: 26px;
+  font-size: 20px;
   color: #f9f9f9;
 }
 .lbbg {
@@ -233,21 +233,21 @@ const gourl = async (url: string) => {
   margin: 0 auto;
 }
 .us {
-  font-size: 26px;
+  font-size: 24px;
   margin-top: 24px;
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 .us img {
-  width: 46px;
-  height: 36px;
-  margin-left: 24px;
+  width: 27.6px;
+  height: 21.6px;
+  margin-left: 10px;
   transition: transform 0.3s ease-in-out;
 }
-.divSrc:hover .us img {
-  transform: translateX(25px);
-}
+// .divSrc:hover .us img {
+//   transform: translateX(25px);
+// }
 .divSrc:hover .us {
   color: #e62a2a;
 }
@@ -260,8 +260,6 @@ const gourl = async (url: string) => {
 
   .carousel {
     width: 80%;
-    height: 520px;
-    display: flex;
     margin: 0 auto;
 
     .el-car-item {
@@ -269,28 +267,26 @@ const gourl = async (url: string) => {
       height: 420px;
       display: flex;
       .divSrc {
-        width: 450px;
         height: 520px;
-        margin-right: 46px;
+        // margin-right: 46px;
         transition: transform 0.3s;
         .img {
-          width: 450px;
-          height: 242px;
+          width: 100%;
           transition: transform 0.3s ease-in-out;
         }
         .title661 {
-          font-size: 32px;
+          font-size: 24px;
           margin: 10px 0;
           color: #fff;
         }
         .title662 {
           color: #fff;
-          font-size: 26px;
+          font-size: 20px;
         }
       }
-      .divSrc:hover .img {
-        transform: scale(1.1);
-      }
+      // .divSrc:hover .img {
+      //   transform: scale(1.1);
+      // }
     }
   }
   .el-car-item {
@@ -298,15 +294,14 @@ const gourl = async (url: string) => {
     display: flex;
 
     .img {
-      width: 284px;
-      height: 184px;
-      margin-right: 20px;
+   
+      // margin-right: 20px;
       cursor: pointer;
     }
   }
 }
 .metaKinaicon {
-  margin: 80px 0 200px 0;
+  margin: 50px 0 50px 0;
 }
 .metaKinaicon img {
   width: 40px;
@@ -316,15 +311,15 @@ const gourl = async (url: string) => {
 }
 .btn {
   border: none;
-  width: 133px;
-  height: 56px;
+  width: 80px;
+  height: 45px;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
   text-align: center;
   display: inline-block;
   background-color: #e62a2a !important;
-  margin-left: 20px;
+  margin-left: 10px;
 }
 .bottom {
   width: 100%;
@@ -373,7 +368,7 @@ const gourl = async (url: string) => {
   margin-bottom: 27px;
 }
 .metaKina {
-  padding: 0 10%;
+  padding: 0 5%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -382,12 +377,11 @@ const gourl = async (url: string) => {
 }
 .cooperation {
   .t2 {
-    font-size: 26px;
+    font-size: 22px;
     color: #f9f9f9;
-    width: 60%;
     text-align: center;
     position: relative;
-    top: -30px;
+    top: -80px;
   }
   .icontextBody {
     display: flex;
@@ -404,34 +398,35 @@ const gourl = async (url: string) => {
       width: 20%;
       transition: transform 0.3s;
       img {
-        width: 120px;
-        height: 120px;
+        width: 60px;
+        height: 60px;
         transition: transform 0.3s ease-in-out;
       }
       div {
-        font-size: 26px;
+        font-size: 16px;
         transition: color 0.3s ease-in-out;
       }
     }
-    .icontext:hover img {
-      transform: scale(1.3);
-    }
+    // .icontext:hover img {
+    //   transform: scale(1.3);
+    // }
 
-    .icontext:hover div {
-      color: #e62a2a; /* 你可以根据需要修改颜色 */
-    }
+    // .icontext:hover div {
+    //   color: #e62a2a; /* 你可以根据需要修改颜色 */
+    // }
   }
 }
 .metaKinabody {
   display: flex;
   align-items: center;
-  margin-top: 40px;
+  margin-top: 20px;
   margin-bottom: 10px;
+  width: 100%;
 }
 .searchInput {
-  width: 847px;
-  height: 56px;
-  font-size: 26px;
+  width: 100%;
+  height: 45px;
+  font-size: 20px;
 }
 .metaKinabodytop {
   display: flex;
@@ -452,7 +447,7 @@ const gourl = async (url: string) => {
 }
 .title {
   text-align: center;
-  padding: 100px 0;
+  padding: 80px 0;
 }
 .redline {
   width: 193px;
@@ -463,7 +458,7 @@ const gourl = async (url: string) => {
   top: -14px;
 }
 .titleword {
-  font-size: 40px;
+  font-size: 32px;
   position: relative;
   z-index: 999;
 }
@@ -502,14 +497,15 @@ const gourl = async (url: string) => {
 .video-background {
   background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/contactUS/topbg.png")
     no-repeat;
-  background-size: 100%;
+  background-size: 200%;
   position: absolute;
   top: 0;
-  height: 817px;
+  height: 400px;
   left: 0;
   width: 100%;
   z-index: -1;
   overflow: hidden;
+  background-position: 50% 0 ;
 }
 .content {
   position: relative;
@@ -537,7 +533,7 @@ const gourl = async (url: string) => {
 }
 
 .search {
-  height: 900px;
+  height: 400px;
   width: 100%;
   position: absolute;
   top: 0;
@@ -545,17 +541,17 @@ const gourl = async (url: string) => {
 }
 .searchText {
   text-align: center;
-  width: 55%;
+  width: 90%;
   margin: 0 auto;
-  margin-top: 13%;
+  margin-top: 22%;
 }
 .searchT1 {
   img {
-    width: 658px;
-    height: 154px;
+    width:395px;
+    height: 92px;
   }
 }
 .searchT2 {
-  font-size: 32px;
+  font-size: 20px;
 }
 </style>

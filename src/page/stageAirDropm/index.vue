@@ -160,7 +160,7 @@ const switchLanguage = () => {
       <text class="t1">{{ t("stageAirDrop.gfjdx") }}</text>
       <text class="t2">{{ t("stageAirDrop.ktkia") }}</text>
     </div>
-    <div style="font-size: 18px; width: 50%">
+    <div class="explainjieshao" >
       {{ t("stageAirDrop.kinasjieshao") }}
     </div>
   </div>
@@ -237,10 +237,9 @@ const switchLanguage = () => {
   justify-content: center;
   padding: 50px 0;
   width: 100%;
-  height: 282px;
   background-color: rgb(24, 25, 32);
   flex-direction: column;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .btn {
   border: none;
@@ -264,9 +263,13 @@ const switchLanguage = () => {
 }
 .t1 {
   color: #e62a2a;
-  font-size: 52px;
+  font-size: 30px;
 }
 .t2 {
-  font-size: 52px;
+  font-size: 30px;
+}
+.explainjieshao{
+font-size: 18px;
+ width: 85%;
 }
 </style>

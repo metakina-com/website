@@ -85,7 +85,7 @@ const switchLanguage = (v: any) => {
 <template>
   <div class="sj">{{ $t("top.sj") }}</div>
   <nav class="navbar">
-    <div class="logo">
+    <div class="logo"  @click="router.push('/')">
       <img :src="proxy?.$ipfsUrl + 'logo.png'" alt="Logo" />
     </div>
     <el-menu

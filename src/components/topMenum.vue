@@ -5,6 +5,7 @@ import {
   getCurrentInstance,
   ref,
 } from "vue";
+import { ElMessage } from "element-plus";
 import { useI18n } from "vue-i18n";
 import { Menu } from "@element-plus/icons-vue";
 const instance = getCurrentInstance();
@@ -79,14 +80,24 @@ const switchLanguage = (v: any) => {
   emit("switchLanguage");
 };
 const table = ref(false);
+const gourl = (url: string) => {
+  window.open(url);
+};
+const copy = async () => {
+  await navigator.clipboard.writeText("MetaverseKIA@gmail.com");
+  ElMessage({
+    message: "邮箱复制成功！！！",
+    type: "success",
+  });
+};
 </script>
 
 <template>
-  <el-drawer v-model="table" direction="rtl" size="50%" :show-close="false">
+  <el-drawer v-model="table" direction="rtl" size="60%" :show-close="false">
     <el-menu
       popper-class="poppertop"
       :default-active="props.activeIndex"
-      background-color="#0b1013"
+      background-color="black"
       text-color="#fff"
       :border="false"
       active-text-color="red"
@@ -143,11 +154,31 @@ const table = ref(false);
         <!-- <el-menu-item index="/">合作伙伴</el-menu-item> -->
       </el-sub-menu>
     </el-menu>
+<div class="drawerIcon social-icons">
+    <div @click="gourl('https://x.com/MetaverseKIA')" class="gourl">
+        <img :src="proxy?.$ipfsUrl + 'home/byyhree.png'" />
+      </div>
+      <div @click="gourl('https://discord.gg/HQxkyZM6kw')" class="gourl">
+        <img :src="proxy?.$ipfsUrl + '/discord.png'" />
+      </div>
+      <div @click="gourl('https://t.me/MetaverseKIApublic')" class="gourl">
+        <img :src="proxy?.$ipfsUrl + '/telegram.png'" />
+      </div>
+      <div
+        @click="gourl('https://www.youtube.com/@MetaverseKIA')"
+        class="gourl"
+      >
+        <img :src="proxy?.$ipfsUrl + 'home/btfive.png'" />
+      </div>
+      <div @click="copy" class="gourl">
+        <img :src="proxy?.$ipfsUrl + 'home/bttwo.png'" />
+      </div>
+    </div>
   </el-drawer>
 
   <!-- <div class="sj">{{ $t("top.sj") }}</div> -->
   <nav class="navbar">
-    <div class="logo" >
+    <div class="logo" @click="router.push('/')">
       <img :src="proxy?.$ipfsUrl + 'logo.png'" alt="Logo" />
     </div>
 
@@ -184,6 +215,11 @@ const table = ref(false);
 <style scoped lang="scss">
 .dropdown {
   // width: 140px;
+}
+.drawerIcon{
+  justify-content: space-between;
+      position: absolute;
+    bottom: 30px;
 }
 .sj {
   position: absolute;

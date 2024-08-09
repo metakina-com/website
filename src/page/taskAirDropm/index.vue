@@ -88,7 +88,7 @@ onMounted(() => {
     </div>
   </div>
   <div class="explain bottomimg">
-    <div class="content">
+    <div class="content bottomimgc">
       <div>{{ t("stageAirDrop.jyihuoqu") }}</div>
       <div>{{ t("stageAirDrop.more") }}<text class="t2 dirfuli" >{{ t("stageAirDrop.ktoufuli") }}</text></div>
       <div class="us t2">
@@ -100,8 +100,11 @@ onMounted(() => {
 </template>
 
 <style scoped>
+.bottomimgc{
+  padding-right: 20px;
+}
 .dirfuli{
-  font-size: 52px;
+  font-size: 30px;
 }
 .djs{
   font-size: 18px; 
@@ -112,11 +115,11 @@ onMounted(() => {
   margin-top: 40px;
 }
 .lquguiz{
-  font-size: 52px;
+  font-size: 30px;
 }
 .metkinfuli{
   font-size: 18px; 
-  width: 50%;
+  width: 85%;
 }
 .us {
   font-size: 26px;
@@ -127,9 +130,9 @@ onMounted(() => {
   justify-content: flex-end;
 }
 .us img {
-  width: 46px;
-  height: 36px;
-  margin-left: 24px;
+  width: 27px;
+  height: 21px;
+  margin-left: 6px;
   transition: transform 0.3s ease-in-out;
 }
 .scroll-container {
@@ -145,7 +148,7 @@ onMounted(() => {
   position: absolute;
   top: 0;
   animation: scroll 10s linear infinite;
-  font-size: 17px;
+  font-size: 16px;
 }
 .scroll-list div {
   margin-bottom: 24px;
@@ -162,72 +165,68 @@ onMounted(() => {
 .rg {
   border: 1px solid #323232;
   border-radius: 16px;
-  width: 30%;
   position: relative;
   padding: 30px;
-  height: 600px;
-  font-size: 24px;
+  height: 450px;
+  font-size: 20px;
 }
 .fuliimage {
-  width: 383px;
-  height: 322px;
+  width: 230px;
+  height: 193px;
   position: absolute;
-  right: 90px;
+  right: 30px;
   bottom: 30px;
 }
 .raffle {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   position: relative;
   margin-bottom: 80px;
-  display: flex;
   justify-content: space-between;
 }
 .lf {
   background-color: rgb(24, 25, 32);
   border-radius: 16px;
-  width: 60%;
   position: relative;
   padding: 30px;
-  height: 600px;
+  height: 450px;
+  margin-bottom: 30px;
+
 }
 .bottomimg {
   background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/boyyomk.png")
     no-repeat;
-  background-size: 100%;
+  background-size: 200%;
+  background-position: 50% 50%;
 }
 .explain {
   display: flex;
   align-items: end;
   justify-content: center;
-  padding: 50px 0;
+  padding: 40px 0;
   width: 100%;
-  height: 282px;
   background-color: rgb(24, 25, 32);
   flex-direction: column;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 .btn {
   border: none;
-  width: 180px;
+  width: 140px;
   height: 40px;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
-  display: inline-block;
-  position: relative;
-  left: 50%;
-  margin: 30px 0 80px 0;
+  display: flex;
+  margin: 30px auto;
 }
 .btn-withdraw {
   background-color: #46a362;
   color: #fff;
-  margin-left: 10px;
+  /* margin-left: 10px; */
 }
 .content {
-  font-size: 52px;
+  font-size: 24px;
   margin-bottom: 20px;
-  padding-right: 200px;
   text-align: right;
 }
 .t1 {
@@ -235,7 +234,7 @@ onMounted(() => {
 
 }
 .t2 {
-  font-size: 32px;
+  font-size: 24px;
   color: #e62a2a;
 }
 .t3 {

@@ -9,7 +9,7 @@
     <div v-for="(v, i) in props.listData" :key="i" class="stage">
       <div class="stage-title" style="width: 200px;">{{ v.title }}</div>
       <div class="stage-address" style="width: 200px;">{{ yasuo(v.address) }}</div>
-      <div class="stage-num" style="width: 200px;">{{ v.num }}</div>
+      <div class="stage-num" style="width: 200px;text-align: center;">{{ v.num }}</div>
       <div class="stage-date" style="width: 300px;">
         {{ v.date }}
       </div>
@@ -41,9 +41,9 @@ const props = defineProps({
 </script>
 <style scoped>
 .container {
-  width: 80%;
+  /* width: 80%; */
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 .header {
   display: flex;
@@ -57,12 +57,12 @@ const props = defineProps({
   /* text-align: center; */
 }
 .stage-title {
-  font-size: 1.2em;
+  font-size: 16px;
   /* text-align: center; */
 }
 .stage-address {
   color: #46a362;
-  font-size: 1.2em;
+  font-size: 16px;
   text-decoration: underline;
   cursor: pointer;
   /* text-align: center; */
@@ -76,7 +76,7 @@ const props = defineProps({
 
 .stage {
   border: 1px solid #1d1d1d;
-  padding: 15px;
+  padding: 10px;
   display: flex;
   border-top: none;
   align-items: center;

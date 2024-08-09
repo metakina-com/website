@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="header">
-      <div class="header-title" style="width: 10%">{{ t("stageAirDrop.jieduan") }}</div>
+      <div class="header-title" style="width: 15%">{{ t("stageAirDrop.jieduan") }}</div>
       <div class="header-title" style="width: 10%">{{ t("stageAirDrop.shuliang") }}</div>
       <div class="header-title" style="width: 20%">{{ t("stageAirDrop.kssj") }}</div>
       <div class="header-title" style="width: 40%">{{ t("stageAirDrop.jdu") }}</div>
@@ -55,26 +55,30 @@ const props = defineProps({
 </script>
 <style scoped>
 .container {
-  width: 80%;
+  overflow: auto;
+  /* width: 100vw; */
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 .header {
   display: flex;
   padding: 15px;
+  width: 160vw;
+
 }
 .header-title {
   /* display: flex; */
   /* text-align: center; */
+  white-space: nowrap;
 }
 .stage-title {
-  font-size: 1.2em;
-  width: 10%;
+  font-size: 16px;
+  width: 15%;
   /* text-align: center; */
 }
 .stage-quantity {
   color: #ffa500;
-  font-size: 1.2em;
+  font-size: 16px;
   width: 10%;
   /* text-align: center; */
 }
@@ -114,6 +118,7 @@ const props = defineProps({
   padding: 15px;
   margin-bottom: 20px;
   display: flex;
+  width: 160vw;
   align-items: center;
 }
 
@@ -142,7 +147,7 @@ const props = defineProps({
   border: none;
   border-radius: 5px;
   color: white;
-  padding: 10px 20px;
+  padding: 10px 10px;
   cursor: pointer;
   font-size: 1em;
   width: 120px;
