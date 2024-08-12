@@ -96,3 +96,11 @@ button:focus-visible {
   background-color: rgb(24, 25, 32);
   border-radius: 16px;
 }
+.el-popper.is-pure{
+  border: none !important;
+  border: 8px !important;
+}
+.el-menu--horizontal>.el-sub-menu .el-sub-menu__title:hover{
+  color: #ff0000 !important; 
+  background: none !important;
+}

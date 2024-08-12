@@ -429,20 +429,20 @@ const goUrl = () => {
   z-index: 999;
 }
 .sassbodyt1 {
-  font-size: 28px;
-  margin-bottom: 20px;
+  font-size: 24px;
+  margin-bottom: 15px;
 }
 .sassbodyt2 {
-  font-size: 30px;
+  font-size: 18px;
 }
 .sassbodyt {
   color: black;
-  padding-top: 32px;
-  margin-left: 36px;
+  padding-top: 24px;
+  margin-left: 28px;
 }
 .sassbodyImg img {
-  width: 46px;
-  height: 36px;
+  width: 27.6px;
+  height: 21.6px;
   position: relative;
   transform: translateX(36px);
   margin-top: 20px;
