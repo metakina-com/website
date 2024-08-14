@@ -9,4 +9,5 @@ import 'element-plus/dist/index.css';
 
 const app = createApp(App).use(router).use(i18n).use(ElementPlus)
 app.config.globalProperties.$ipfsUrl = 'https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/';
+app.config.globalProperties.$ipfsUrlMP4 = 'https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmWEN4QsPBzXY1keHAzFz6yFihZLK7FiFuV8MV56hTUNiU/';
 app.mount('#app');

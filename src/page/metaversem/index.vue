@@ -126,11 +126,11 @@ const gourl = async (url: string) => {
 </script>
 
 <template>
-  <Top activeIndex="/" @switchLanguage="switchLanguage"/>
+  <Top activeIndex="/metaverse" @switchLanguage="switchLanguage"/>
   <div class="search">
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source :src="proxy?.$ipfsUrl + 'home/matetop.mp4'" type="video/mp4" />
+        <source :src="proxy?.$ipfsUrlMP4 + 'matetop.mp4'" type="video/mp4" />
       </video>
     </div>
     <div class="searchText" id="nav">

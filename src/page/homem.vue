@@ -149,7 +149,7 @@ const goUrl = () => {
   <div class="search">
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source :src="proxy?.$ipfsUrl + 'home/bgtop.mp4'" type="video/mp4" />
+        <source :src="proxy?.$ipfsUrlMP4 + 'bgtop.mp4'" type="video/mp4" />
       </video>
     </div>
     <div class="searchText" id="nav">
@@ -198,7 +198,7 @@ const goUrl = () => {
       id="bg-video2"
     >
       <source
-        :src="proxy?.$ipfsUrl + 'home/videoMetaKina.mp4'"
+        :src="proxy?.$ipfsUrlMP4 + 'videoMetaKina.mp4'"
         type="video/mp4"
       />
     </video>

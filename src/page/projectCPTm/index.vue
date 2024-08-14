@@ -145,7 +145,7 @@ onMounted(() => {
   <div class="search">
     <div class="video-background" id="nav">
       <video autoplay muted loop id="bg-video">
-        <source :src="proxy?.$ipfsUrl + 'project/topbg.mp4' " type="video/mp4" />
+        <source :src="proxy?.$ipfsUrlMP4 + 'topbg.mp4' " type="video/mp4" />
       </video>
     </div>
     <div class="searchText" >

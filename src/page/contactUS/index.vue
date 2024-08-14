@@ -116,7 +116,7 @@ const gourl = async (url: string) => {
 </script>
 
 <template>
-  <Top activeIndex="/"  @switchLanguage="switchLanguage"/>
+  <Top activeIndex="/contactUS"  @switchLanguage="switchLanguage"/>
   <div class="search">
     <div class="video-background" id="nav">
       <div class="searchText" id="nav">
