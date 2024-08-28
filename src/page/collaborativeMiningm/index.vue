@@ -193,7 +193,7 @@ source2.value = 45000;
   width: 80%;
   /* height: 237px; */
   line-height: 140px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/csimgbg.png")
+  background: url("https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/csimgbg.png")
     no-repeat;
   background-size: contain;
   display: flex;

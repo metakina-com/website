@@ -3,7 +3,7 @@
     <person :imgurl="props.imgurl" :circle="circle" @begin="begin" @cancel="cancel"/>
     <div class="card-content" v-show="isShow">
       <div class="imgricon">
-        <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png" class="icon2" alt="wakuang" />
+        <img :src="proxy?.$ipfsUrl + 'wakuang.png'" class="icon2" alt="wakuang" />
       </div>
       <div class="cr">
         <div class="stake-amount">
@@ -43,8 +43,10 @@
 </template>
 <script setup lang="ts">
 import Person from "./personal.vue";
-import { ref, defineProps} from "vue";
+import { ref, defineProps, getCurrentInstance} from "vue";
 import { useI18n } from 'vue-i18n';
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const { t } = useI18n();
 //质押销毁
 const isShow = ref(false);

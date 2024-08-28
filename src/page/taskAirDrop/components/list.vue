@@ -3,7 +3,7 @@
     <div class="c-top" >
       <div class="card-header">
         <img
-          src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/BNB.png"
+        :src="proxy?.$ipfsUrl + 'BNB.png'"
           alt="Cat Image"
           class="cat-image"
         />
@@ -29,8 +29,10 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineProps} from "vue";
+import { defineProps ,getCurrentInstance} from "vue";
 import { useI18n } from 'vue-i18n';
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const { t } = useI18n();
 const props = defineProps({
   btnLName: String,

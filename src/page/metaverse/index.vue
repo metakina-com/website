@@ -298,7 +298,7 @@ const gourl = async (url: string) => {
 .bottom {
   width: 100%;
   height: 382px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/bottombg.png")
+  background: url("https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/home/bottombg.png")
     no-repeat;
   background-size: 100%;
   text-align: center;

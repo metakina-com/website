@@ -1,10 +1,5 @@
 <script setup lang="ts">
-import {
-  defineProps,
-  defineEmits,
-  getCurrentInstance,
-  ref,
-} from "vue";
+import { defineProps, defineEmits, getCurrentInstance, ref } from "vue";
 import { ElMessage } from "element-plus";
 import { useI18n } from "vue-i18n";
 import { Menu } from "@element-plus/icons-vue";
@@ -183,10 +178,10 @@ const copy = async () => {
         <img :src="proxy?.$ipfsUrl + 'home/byyhree.png'" />
       </div>
       <div @click="gourl('https://discord.gg/HQxkyZM6kw')" class="gourl">
-        <img :src="proxy?.$ipfsUrl + '/discord.png'" />
+        <img :src="proxy?.$ipfsUrl + 'discord.png'" />
       </div>
       <div @click="gourl('https://t.me/MetaverseKIApublic')" class="gourl">
-        <img :src="proxy?.$ipfsUrl + '/telegram.png'" />
+        <img :src="proxy?.$ipfsUrl + 'telegram.png'" />
       </div>
       <div
         @click="gourl('https://www.youtube.com/@MetaverseKIA')"
@@ -213,9 +208,7 @@ const copy = async () => {
       <el-dropdown class="dropdown">
         <span class="el-dropdown-link">
           <div class="language">
-            <img
-              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmaUmVKZ3hV3vevTbWBrsk2V8GhUxmQizRJvncRYqEyXpP"
-            />
+            <img :src="proxy?.$ipfsUrl + 'language.png'" />
             <!-- <div>{{ selectlan }}</div> -->
           </div>
         </span>

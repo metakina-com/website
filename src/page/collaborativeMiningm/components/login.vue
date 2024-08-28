@@ -21,7 +21,7 @@ const getYzm = () => {
     <div class="down">{{t("collaborativeMining.dpwnlapp")}}</div>
     <!-- <div class="illustration">
       <img
-        src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png"
+        src="https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/wakuang.png"
         alt="Mining Illustration"
       />
     </div> -->

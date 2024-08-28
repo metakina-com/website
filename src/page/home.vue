@@ -85,7 +85,7 @@ const getOneList = () => [
 ]
 const getTwoList = () => [
   {
-    imgurl: 'https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVZyz6WZ4mtRxTvmVjx4L8Pak548RTnG7DsUfLsAiHro9',
+    imgurl: proxy?.$ipfsUrl + "yhsctabone.png",
     background: "none",
     color: "#999",
     t1: t("home.yhsc"),
@@ -273,7 +273,7 @@ const goUrl = () => {
     <div @click="goUrl" class="bottomb">
       {{ t("home.kaiqits") }}
       <img
-        src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png"
+        src="https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/home/hong.png"
       />
     </div>
   </div>
@@ -293,7 +293,7 @@ const goUrl = () => {
 .bottom {
   width: 100%;
   height: 482px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/bottombg.png")
+  background: url("https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/home/bottombg.png")
     no-repeat;
   background-size: 100%;
   text-align: center;

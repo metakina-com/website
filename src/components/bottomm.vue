@@ -9,7 +9,7 @@
 <style scoped>
     .btmimg{
         height: 257px;
-        background: url('https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/btmimg.png') no-repeat;
+        background: url('https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/btmimg.png') no-repeat;
         background-size: 100%;
     }
 </style>

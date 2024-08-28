@@ -153,7 +153,7 @@ const gourl = async (url: string) => {
           <div class="us">
             {{ t("contactUS.jiarwom") }}
             <img
-              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/home/hong.png"
+              src="https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/home/hong.png"
               alt=""
               srcset=""
             />
@@ -329,7 +329,7 @@ const gourl = async (url: string) => {
 .bottom {
   width: 100%;
   height: 382px;
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/bottombg.png")
+  background: url("https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/bottombg.png")
     no-repeat;
   background-size: 100%;
   text-align: center;
@@ -500,7 +500,7 @@ const gourl = async (url: string) => {
   z-index: 1;
 }
 .video-background {
-  background: url("https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/contactUS/topbg.png")
+  background: url("https://pub-7f3d82f53363484c8d4f6a346d92560a.r2.dev/img/contactUS/topbg.png")
     no-repeat;
   background-size: 100%;
   position: absolute;

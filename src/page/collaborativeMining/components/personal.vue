@@ -23,15 +23,17 @@
           </div>
           <div class="social-icons">
             <img
-              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/telegram.png"
+            :src="proxy?.$ipfsUrl + 'home/byyhree.png'"
               class="icon"
               alt="Twitter"
             />
-            <img src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/discord.png" class="icon" alt="Twitter" />
+            <img 
+            :src="proxy?.$ipfsUrl + 'discord.png'"
+            class="icon" alt="discord" />
             <img
-              src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/telegram.png"
+            :src="proxy?.$ipfsUrl + 'telegram.png'"
               class="icon"
-              alt="Twitter"
+              alt="telegram"
             />
           </div>
         </div>
@@ -60,9 +62,11 @@
   </div>
 </template>
 <script setup lang="ts">
-import { defineProps, defineEmits} from "vue";
+import { defineProps, defineEmits, getCurrentInstance} from "vue";
 const emit = defineEmits(['begin','cancel']);
 import { useI18n } from 'vue-i18n';
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const { t } = useI18n();
 const props = defineProps({
     imgurl: String,

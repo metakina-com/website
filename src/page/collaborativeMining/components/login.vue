@@ -1,6 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, getCurrentInstance } from "vue";
 import { useI18n } from 'vue-i18n';
+const instance = getCurrentInstance();
+const proxy = instance?.proxy as any; // 使用类型断言和可选链操作符
 const { t } = useI18n();
 const djs: any = ref(t("collaborativeMining.getcode"));
 const getYzm = () => {
@@ -20,10 +22,8 @@ const getYzm = () => {
   <div class="down">{{t("collaborativeMining.dpwnlapp")}}</div>
   <div class="logincontainer">
     <div class="illustration">
-      <img
-        src="https://plum-secure-meadowlark-923.mypinata.cloud/ipfs/QmVhCqjSFnw5Bvcjzmu2VCwnTMxU3fatZqeiHE2JZFaH5B/wakuang.png"
-        alt="Mining Illustration"
-      />
+      <img :src="proxy?.$ipfsUrl + 'wakuang.png'" class="icon2" alt="wakuang" />
+
     </div>
     <div class="login-form">
       <h2 class="loginwakuang">{{t("collaborativeMining.begin")}}</h2>
